@@ -3,8 +3,11 @@
         <div class="front-header">
             <nav>
                 <div>
+                    <!--
                     <h3>Foodie</h3>
                     <small>Awesome Food and beverages</small>
+                    -->
+                    <img class="logo" src="@/assets/img/logocrop.png" alt="">
                 </div>
 
                 <div class="front-search">
@@ -13,19 +16,25 @@
                 </div>
 
                 <div class="front-nav-links">
-                    <div v-if="user === null">
-                        <router-link to="/account"><small>Login</small></router-link> | <router-link to="/account"><small>Register</small></router-link>
+                    <div>
+                        <router-link to="/account"><small >Login</small></router-link> | <router-link to="/account"><small>Sign Up</small></router-link>
                     </div>
 
-                    <div v-else>
-                        <button class="btn-link" @click="signout"><small><span class="ti-user"></span> Profile</small></button> | <button class="btn-link" @click="signout"><small><span class="ti-power-off"></span> Logout</small></button>
+                    <div v-if="isLogin === true" >
+                        <button class="btn-link"><small ><span class="ti-user"></span>Profile</small></button> | <button class="btn-link"><small><span class="ti-power-off"></span> Logout</small></button>
+                    </div>
+
+                    <div v-if="isLogin === true" >
+                        <router-link to="/restaurant/account"><small>Create Restaurant</small></router-link>
                     </div>
                     
                     <div>
+                        <router-link to="/cart" >
                         <button class="btn btn-main-gradient">
                             <span class="ti-shopping-cart"></span>
-                            <span>{{cart.length}}</span>
+                            <span><img src="@/assets/img/cart.png" alt=""></span>
                         </button>
+                        </router-link>
                     </div>
                 </div>
             </nav>
@@ -36,12 +45,9 @@
 <script>
 export default {
     name: 'Nav',
-    props: ['user', 'cart', 'categories'],
-    methods: {
-        signout() {
-            localStorage.removeItem('user')
-            localStorage.removeItem('token')
-            location.reload()
+    data(){
+        return {
+            isLogin: false
         }
     }
 }

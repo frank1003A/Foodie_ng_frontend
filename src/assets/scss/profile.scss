@@ -1,0 +1,55 @@
+.profile-grid-container{
+    min-height: 100vh;
+    position: relative;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 150px;
+    padding-right: 80px;
+    border: none;
+
+    .user{
+        background: white;
+    }
+}
+
+.user{
+    grid-column: 1/ span 3;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+    padding: 16px;
+    justify-content: flex-start;
+    display: flex;
+    border-left: 2px solid orange;
+
+    .photo{
+        padding: 80px;
+        margin-right: 20px;
+        size: 50px;
+        background: white;
+        border-radius: 50%;
+        img{
+            width: fit-content;
+            height: fit-content;
+        }
+    }
+
+    .information{
+        display: inline-block;
+        padding-top: 30px ;
+
+        .buttons{
+            display: flex;
+            gap: 10px;
+        }
+
+        h5{
+            font-size: 2rem;
+        }
+        p{
+            font: .9em sans-serif;
+            color: #333;
+        }
+    }
+}

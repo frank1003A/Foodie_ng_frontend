@@ -1,0 +1,102 @@
+.wallet-container{
+    max-width:90vw;
+    max-height: 100vh;
+    padding: 1rem 1rem;
+    right:400px;
+    left: 80px;
+    position: relative;
+    top: 90px;
+    bottom: 20px;
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    .wallet{
+        grid-row: 1/span 2;
+    }
+
+    .wallet-info{
+        grid-column: 1/span 2;
+        padding: 40px;
+        border-radius: 5px;
+        right: 0;
+        background: lighten($color: #faae0a, $amount: 30);
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .info{
+        display: inline-block;
+
+        h1{
+            color:darkorange;
+        }
+    
+        p{
+            color:darkorange;
+        }
+    }
+
+        button{
+            margin-left: 50px; 
+        }
+    
+    .wallet-table{
+        color: black;
+        margin-top: 10px;
+
+        table{
+            border-spacing: 0px;
+            margin-top: 20px;
+            width: 100%;
+
+        td,th{
+            padding: .75em;
+            vertical-align: top;
+            text-align: center;
+            border-top: 1px solid #faae0a;
+            max-height: 16px;
+        }
+
+        & tr:hover{
+            background-color: #faae0a;
+            color: #fff;
+        }
+
+        thead{
+            color: #fff;
+            background-color: lighten($color: #faae0a, $amount: 30);
+            border-color: #000;
+        }
+        }
+    }
+
+    .transfer-grid{
+        grid-row: 1/span 2;
+        align-content: center;
+        display: block;
+        padding: 1.5rem;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2), -2px -2px 10px rgba(255,255,255,0.8);
+        border-radius: 5px;
+
+
+        .wallet-form{
+            margin-top: 20px;
+
+            .form-group{
+                display: block;
+                align-content: center;
+                text-align: center;
+
+                .under{
+                    font-size: .7rem;
+                }
+            }
+            
+        }
+    }
+
+}
+

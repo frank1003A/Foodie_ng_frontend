@@ -1,4 +1,8 @@
 <template>
+<div>
+<div class="account-image">
+                <!--<img src="@/assets/img/logocrop.png" alt="">-->
+            </div>
     <div class="account-wrapper">
         <div>
             <div>
@@ -17,6 +21,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

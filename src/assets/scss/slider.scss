@@ -1,0 +1,45 @@
+ /*
+    image slider
+    */
+    .fade-enter-active,
+    .fade-leave-active{
+        transition: all 0.9s ease;
+        overflow: hidden;
+        visibility: visible;
+        position: absolute;
+        width: 70%;
+        opacity: 1;
+    }
+
+    .fade-enter, .fade-leave-to{
+        visibility: hidden;
+        width: 70%;
+        opacity: 0;
+    }
+
+    .prev, .next{
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width:70%;
+        padding: 16px;
+        color: rgb(182, 50, 50);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.7 ease;
+        border-radius: 0 4px 4px 0;
+        text-decoration: none;
+        user-select: none;
+    }
+
+    .next{
+        right: 0;
+    }
+
+    .prev{
+        left: 0;
+    }
+
+    .prev:hover, .next:hover{
+        background-color: rgba(0, 0, 0, 0.9);
+    }

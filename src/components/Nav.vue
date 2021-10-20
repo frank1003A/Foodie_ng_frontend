@@ -3,16 +3,16 @@
         <div class="front-header">
             <nav>
                 <div>
-                    <!--
+                    
                     <h3>Foodie</h3>
                     <small>Awesome Food and beverages</small>
-                    -->
-                    <img class="logo" src="@/assets/img/logocrop.png" alt="">
+                    <!--
+                    <img class="logo" src="@/assets/img/logocrop.png" alt="">-->
                 </div>
 
                 <div class="front-search">
                     <span class="ti-search"></span>
-                    <input type="search" placeholder="Search or scan for items" />
+                    <input type="search" placeholder="what would you like to eat?" />
                 </div>
 
                 <div class="front-nav-links">
@@ -31,7 +31,7 @@
                     <div>
                         <router-link to="/cart" >
                         <button class="btn btn-main-gradient">
-                            <span class="ti-shopping-cart"></span>
+                            <!--<span class="ti-shopping-cart"></span>-->
                             <span><img src="@/assets/img/cart.png" alt=""></span>
                         </button>
                         </router-link>
@@ -52,3 +52,8 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/top_navbar.scss';
+</style>
+

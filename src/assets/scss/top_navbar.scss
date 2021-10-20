@@ -1,0 +1,96 @@
+.front-header {
+    position: fixed;
+    //left: 110px;
+    left: 80px;
+    //left: 0;
+    //top: 20px;
+    top: 0;
+    //right: 40px;
+    right: 0;
+    padding: 1.3rem 1.8rem;
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    //border-top-right-radius: 8px;
+    //width: calc(100% - 190px);
+    z-index: 100;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-size: 1.6rem;
+
+            & + small {
+                display: block !important;
+                margin-top: -3px;
+            }
+        }
+
+        .front-search {
+            display: flex;
+            align-items: center;
+            width: 50%;
+
+            span {
+                padding: 1rem 1.4rem;
+                font-size: 1.5rem;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                height: 40px;
+                flex: 1;
+                background:#f9f9f9;
+                border-radius: 5px;
+                padding: 1rem 1.4rem;
+                //border-left: 1px solid var(--text-grey);
+
+                &:checked{
+                    border-color: #faae0a;
+                }
+            }
+        }
+
+        .front-nav-links {
+            display: flex;
+            align-items: center;
+
+            div:first-child {
+                a, button {
+                    display: inline-block;
+                    margin: 0rem .5rem;
+                    font-size: 1.03rem;
+                    font-weight: 600;
+                    color: #555;
+                    text-transform: uppercase;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            div:last-child {
+                margin-left: 1.5rem;
+
+                button {
+                    padding: .6rem 1rem;
+                }
+
+                span:first-child {
+                    font-size: 1.3rem;
+                }
+
+                span:last-child {
+                    font-size: .8rem;
+                }
+            }
+           
+        }
+    }
+}

@@ -4,27 +4,36 @@
             <div v-for="photo in [currentIndex]" :key="photo" >
                 <img :src="currentImg"/>
             </div>
-        </transition-group>    
-            <a class="prev" @click="prev" href="#" ><img src="" alt="<"></a>
-            <a class="next" @click="next" href="#" ><img src="" alt=">"></a>
+        </transition-group>
+        <!--
+          <a class="prev" @click="prev" href="#" ><img src="" alt="<"></a>
+        <a class="next" @click="next" href="#" ><img src="" alt=">"></a> 
+        -->
     </div>
 </template>
 
 <script>
-import img1 from '../assets/simg/img1.jpg';
-import img2 from '../assets/simg/img2.jpg';
-import img3 from '../assets/simg/img3.jpg';
-import logo from '../assets/img/logocrop.png';
+import ad1 from '../assets/ad/ad1.jpg';
+import ad2 from '../assets/ad/ad2.jpg';
+import ad3 from '../assets/ad/ad3.jpg';
+import ad4 from '../assets/ad/ad4.jpg';
+import ad5 from '../assets/ad/ad5.jpg';
+import ad6 from '../assets/ad/ad6.jpg';
+import ad7 from '../assets/ad/ad7.png';
+
 
 export default {
     name: 'Slider',
     data(){
         return {
             images: [
-                logo,
-                img1,
-                img2,
-                img3
+                ad1,
+                ad2,
+                ad3,
+                ad4,
+                ad5,
+                ad6,
+                ad7
             ],
             timer: null,
             currentIndex: 0
@@ -51,3 +60,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/slider.scss'
+</style>

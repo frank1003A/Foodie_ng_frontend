@@ -1,34 +1,29 @@
 <template>
-    <div class="front-wrapper">
+    <div class="body" id="body">
 
         <!-- Top Navbar-->
         <Nav></Nav>
 
         <!-- Side Navbar-->
         <SideNav></SideNav>
+        
 
         <div class="front-main">
 
         <!-- Slide show-->
         <div class="slide-wrapper">
-            <Slider></Slider>
+            <Slider></Slider> 
         </div>
-
-        <!--Menu category-->
-                    <div class="category-wrapper" >
+        
+        
+                    <div class="category-wrapper" id="cartwrap" >
                         <ul>
-                            <div class="dropdown">
-                            <button class="dropbtn">Category</button>
-                              <div class="dropdown-content">
-                                <li><img src="../assets/img/dish.svg" alt="dish"><p>Meals</p></li>
-                            <li><img src="../assets/img/coffee-cup.svg" alt=""><p>Cofee</p></li>
-                            <li><img src="../assets/img/hamburger.svg" alt=""><p>Snacks</p></li>
-                            <li><img src="../assets/img/kebab.svg" alt=""><p>Kebab</p></li>
-                            <li><img src="../assets/img/dish.svg" alt="dish"><p>Meals</p></li>
-                            <li><img src="../assets/img/coffee-cup.svg" alt=""><p>Cofee</p></li>
-                            <li><img src="../assets/img/hamburger.svg" alt=""><p>Snacks</p></li>
-                            <li><img src="../assets/img/kebab.svg" alt=""><p>Kebab</p></li>
-                              </div>
+                            <li class="active"><img src="../assets/img/all_16.png" alt="dish"><p>All</p></li>
+                            <li><img src="../assets/img/location_16.png" alt=""><p>Nearby</p></li>
+                            <li><img src="../assets/img/rated_16.png" alt=""><p>Top Rated</p></li>
+                            <li><img src="../assets/img/best_16.png" alt=""><p>Best Sellers</p></li>
+                            <li><img src="../assets/img/new_16.png" alt="dish"><p>Newcomers</p></li>
+                              <!--
                           </div>
                           <br/>
                           <br/>
@@ -42,32 +37,38 @@
                                 <a href="#">Menu</a>
                               </div>
                           </div>
-                          <!--
-                          <label for="selector">Filter by  </label>
-                          <select name="selector" id="">
-                            <option value="Menu">Menu</option>
-                            <option value="Location">Location</option>
-                            <option value="Restaurant">Restaurant</option>
-                            <option value="School">School</option>
-                          </select>
                           -->
                         </ul>
                 
                     </div>
+                   
 
             <div class="main-grid">
                 <div class="menu-section">
                     <h3></h3>    
 
                     <div class="menu-grid">
-                        <div  class="menu-card" v-for="(item, index) in item" :key="index"
+                        <div  class="menu-card" :style="`background-image: url(${item.image})`" v-for="(item, index) in item" :key="index"
                          >
                             <div>
                                 <span class="bg-main-gradient item-price">
                                     <span>&#8358;</span> {{item.price}}
                                 </span>
-                                <span class="bg-main-gradient img-1 wishlist">
-                                  <span><img src="../assets/img/love_a.png" alt=""></span>
+                                <span>
+                                  <!--
+                                  <span class="bg-main-gradient img-1 wishlist">
+                                    
+                                    <Rating 
+                                    :star="this.star" 
+                                    :disabled="disabled" 
+                                    :maxstars="this.maxstars" 
+                                    :starsize="this.starsize" 
+                                    :hasresults="this.hasresults" 
+                                    :hasdescription="this.hasdescription" 
+                                    :ratingdescription="this.ratingdescription" />-->
+                                 <!-- <img src="../assets/img/love_a.png" alt=""></span> 
+                                </span>
+                                -->
                                 </span>
                             </div>
                             <div>
@@ -75,11 +76,99 @@
                             </div>
 
                             <button @click="pushtoCart(item)" class="btn btn-main-gradient">
-                            Add to cart
+                            <span class="ti-plus"></span>
+                            add to cart 
                             </button>
 
                         </div>
-                    </div>
+                    </div> 
+                    <div>
+                      <div class="order-wrapper">
+                        <div class="cart-sum">
+                                <div class="cart-address">
+                                    <h3>My Orders</h3>
+                                    <div class="price-block">
+                                        <div>
+                                            <small><b>Delivery address</b></small>
+                                                <div class="custom-select">
+                                                    <select name="location" id="order-location">
+                                                        <option value="">1314 Morris Street</option>
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                        </div>
+
+                                        <div class="timedistance">
+                                            <span><img src="../assets/img/best_16.png" alt=""> 40 mins</span>
+                                            <span><img src="../assets/img/location_16.png" alt=""> 4 kms</span>
+                                        </div>
+
+                                       <!-- <button class="btn btn-main-gradient btn-block" @click="$emit('show')">
+                                            <span class="ti-location-pin"></span> Change
+                                        </button>-->
+                                    </div>
+
+                                    <div>
+
+                                    <div class="dividersolid"></div>
+
+                                      <!--cart item-->
+                                      <div class="cart-body">
+                            <div class="cart-items">
+                                <div class="cart-item" v-for="(item, index) in cart" :key="index">
+                                    <div class="cart-info">
+                                        <span class="ti-trash"></span>
+                                        <span><img :src="item.image" alt=""></span>
+                                        <div>
+                                            <h4>{{item.name}}</h4>
+                                            <small>&#8358; {{item.price}}</small>
+                                        </div>
+                                    </div>
+                                    </div>  
+                                </div>
+                            </div>
+                                      <!--cart item end-->
+
+                                      <div class="dividersolid"></div>
+
+                                    <div class="price-flex">
+                                        <small>Subtotal</small>
+                                        <small>{{selectedItem.price}}</small>
+                                    </div>
+                                    <div class="price-flex">
+                                        <small>Delivery fee</small>
+                                        <small>{{selectedItem.price/0.1}}</small>
+                                    </div>
+                                    <div class="promo">
+                                        <div class="coupon-flex">
+                                            promotion 
+                                            <button class="btn btn-small btn-main-gradient">Add Coupon</button>
+                                        </div>
+                                    </div>
+                                    <div class="dividersolid"></div>
+
+                                    <div class="price-flex">
+                                        <small>Total</small>
+                                        <h4>{{selectedItem.price}}</h4>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="cart-pay-btn">
+                                    <button class="btn btn-main-gradient"><span class="ti-credit-card"></span>CHECKOUT</button>   
+                                    <br/>
+                                    <button v-if="address != ''" class="btn btn-success" @click="$emit('show')">
+                                        Add delivery address
+                                    </button>
+                                    <br/>
+                                    <button v-if="user != ''" class="btn btn-success" @click="$router.push('/account')">
+                                        Login to continue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+              </div> 
 
         <Modal v-if="showItemInfo" @close="showItemInfo = false">
             <template v-slot:header>
@@ -138,6 +227,12 @@ import Modal from '../components/Modal.vue'
 import SideNav from '../components/SideNav.vue'
 import Slider from '../components/Slider.vue'
 import Order from '../components/Order.vue'
+import image1 from '@/assets/newimg/jollofrice.jpg'
+import image2 from '@/assets/newimg/friedrice.jpg'
+import image3 from '@/assets/newimg/food1.jpg'
+import image4 from '@/assets/newimg/food2.jpg'
+import image5 from '@/assets/newimg/food3.jpg'
+import image6 from '@/assets/newimg/burger.jpg'
 
 export default {  
   name: 'Home',
@@ -146,115 +241,89 @@ export default {
       Modal,
       SideNav,
       Order,
-      Slider
+      Slider,
   },
   data() {
     return {
         email: "",
         password: "",
         address: "",
+        user: "",
         showAddressModal: false,
         showItemInfo: false,
+        total:'',
+        Dfee: '',
         selectedItem: [],
         item:[
             {
           name: 'Fried rice and chicken',
-          price: '1200',
+          price: '1200.00',
           restaurant: 'KFC Restaurant',
           menu: 'Sunday Specials',
-          image: "@/assets/simg/img2.jpg",
+          image: image1,
           status: 'Available till 6pm today'
         },
         {
           name: 'Beans and wheat',
-          price: '1000',
+          price: '1000.00',
           restaurant: 'Onehouse Restaurant',
           menu: 'green menu',
-          image: '@/assets/simg/img1.jpg',
+          image:image2,
           status: 'Available till 6pm today'
         },
         {
           name: 'Amala and ewedu',
-          price: '1500',
+          price: '1500.00',
           restaurant: 'Onehouse Restaurant',
           menu: 'green menu',
-          image: '@/assets/simg/img4.jpg',
+          image:image3,
           status: 'Available till 6pm today'
         },
         {
           name: 'Fried rice and chicken',
-          price: '1200',
+          price: '1200.00',
           restaurant: 'KFC Restaurant',
           menu: 'Sunday Specials',
-          image: "@/assets/simg/img2.jpg",
+          image: image4,
           status: 'Available till 6pm today'
         },
         {
           name: 'Beans and wheat',
-          price: '1000',
+          price: '1000.00',
           restaurant: 'Onehouse Restaurant',
           menu: 'green menu',
-          image: '@/assets/simg/img1.jpg',
+          image : image5,
           status: 'Available till 6pm today'
         },
         {
           name: 'Amala and ewedu',
-          price: '1500',
+          price: '1500.00',
           restaurant: 'Onehouse Restaurant',
           menu: 'green menu',
-          image: '@/assets/simg/img4.jpg',
+          image: image6,
           status: 'Available till 6pm today'
         },
-        {
-          name: 'Fried rice and chicken',
-          price: '1200',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: "@/assets/simg/img2.jpg",
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image: '@/assets/simg/img1.jpg',
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Amala and ewedu',
-          price: '1500',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image: '@/assets/simg/img4.jpg',
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Fried rice and chicken',
-          price: '1200',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: "@/assets/simg/img2.jpg",
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image: '@/assets/simg/img1.jpg',
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Amala and ewedu',
-          price: '1500',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image: '@/assets/simg/img4.jpg',
-          status: 'Available till 6pm today'
-        }
         ],
-        cart: []
+        cart: [
+            {
+          name: 'Fried rice and chicken',
+          price: '1200.00',
+          restaurant: 'KFC Restaurant',
+          menu: 'Sunday Specials',
+          image: image1,
+          status: 'Available till 6pm today'
+        },
+        ],
+        cart: [
+            {
+          name: 'Fried rice and chicken',
+          price: '1200.00',
+          restaurant: 'KFC Restaurant',
+          menu: 'Sunday Specials',
+          image: image1,
+          status: 'Available till 6pm today'
+        },
+        ]
     }
   },
   methods: {

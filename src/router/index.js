@@ -6,6 +6,7 @@ import Account from '../views/Account.vue'
 import Profile from '../views/Profile.vue'
 import Restaurant from '../components/CreateRestaurant.vue'
 import Cart from '../views/Cart.vue'
+import Wallet from '../views/Wallet.vue'
 
 //admin routes
 import Login from '../views/Admin/Login.vue'
@@ -33,6 +34,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+  {
+    path: '/wallet',
+    name: 'Wallet',
+    component: Wallet
   },
   {
     path: '/restaurant/account',

@@ -1,38 +1,26 @@
 <template>
-  <div>
+  <div class="main-wrapper" >
      <!-- Top Navbar-->
         <Nav></Nav>
 
-        <!-- Side Navbar-->
-        <SideNav></SideNav>
+        <!-- Bottom Navbar -->
+        <BottomNav></BottomNav>
+
+
+        <!--mid-pad--->
+        <div class="middle-bar">
+            <div class="pathdesc">
+                <p>Home > Cart</p>
+            <h3>120 restaurants in Festac Town</h3>
+            </div>
+                    <Searchbar></Searchbar>
+        </div>
+
 
 
         <div class="wallet-container">
             <div class="wallet">
-            <div class="wallet-table">
-                 <h2>Wallet Transactions</h2>
-                <table>
-                    <thead>
-                        <th>ID</th>
-                        <th>Restaurant Name</th>
-                        <th>Item</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>KFC Restaurant</td>
-                            <td>Jollof rice and chicken</td>
-                            <td>&#8358; 2000.00</td>
-                            <td><span class="badge success">Success</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            </div>
-
-            <div class="transfer-grid">
+                <!--<img src="@/assets/img/atmcard.png" alt="">-->
                  <span class="wallet-info">
                 <span class="info" >
                     <h1>&#8358; 50,000.00</h1>
@@ -40,7 +28,10 @@
                 </span>
                 <button class="btn btn-main-gradient" @click="showAddressModal = true">Add Money to Wallet</button>
             </span>
+            </div>
 
+            <div class="transfer-grid">
+                <h2>Wallet Transfer</h2>
              <div class="wallet-form">
         <div class="form-group">
             <label for="reciever">Pay to</label>
@@ -69,6 +60,9 @@
         </div>
     </div>
             </div>
+            <div>
+                <h2>Wallet Transactions</h2>
+            </div>  
         </div>
 
         <!--modal-->
@@ -84,19 +78,24 @@
             </template>
         </Modal>
   </div>
+  <Footer id="extupFooter"></Footer>
 </template>
 
 <script>
 import Nav from '../components/Nav.vue'
 import SideNav from '../components/SideNav.vue'
+import BottomNav from '../components/Bottom_Navbar.vue'
 import Modal from '../components/Modal.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
     name: 'Wallet',
     components:{
         Nav, 
         SideNav,
-        Modal
+        BottomNav,
+        Modal,
+        Footer
     },
     data() {
         return {

@@ -1,0 +1,68 @@
+@import '@/assets/scss/variables.scss';
+.c-slideout{
+    height: 100%;
+    width: 100%;
+
+    &_overlay{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+    //background: linear-gradient(45deg, black, transparent);
+        //background: white;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    &_container{
+        //width: 18.75rem;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 10000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+    }
+}
+
+//close button
+
+.c-close{
+    position: absolute;
+    background: 0 0;
+    opacity: .5;
+    right: .625rem;
+    top: .4375rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+//Transitions
+.overlay{
+&-enter-active,
+&-leave-active{
+    transition: all 0.3s ease-out;
+}
+
+&-enter,
+&-leave-to{
+background-color:rgba(0,0,0,0.5) ;
+}
+}
+
+.slide{
+    &-enter-active,
+    &-leave-active{
+        transition: all 0.3s ease-out;
+    }
+
+    &-enter,
+&-leave-to{
+    transform: translateX(-100%);
+}
+
+}

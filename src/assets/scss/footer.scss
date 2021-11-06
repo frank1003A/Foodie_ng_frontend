@@ -1,5 +1,152 @@
+@import '@/assets/scss/variables.scss';
 footer{
-    padding: 20px;
-    background: orange;
-    margin-top: 200px;
+    padding:80px;
+    bottom: 0;
+    background: $primary-dark;
+    // /margin-top: 100%;
+    background-attachment: fixed;
+    position: relative;
+    line-height: 20px;
+    justify-content: center;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 30px;
+    padding-bottom: 0;
+
+
+    nav {
+      display: flex;
+        justify-content: space-between;
+        align-items: center;
+      .logo{
+        color: white;
+      }
+
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+
+        li {
+          //display: inline-block;
+          padding: 10px 15px;
+          margin: 15px 3px;
+          line-height: 20px;
+          text-align: center;
+        }
+      }
+    }
+    .copyright {
+      color: white;
+      padding: 10px 15px;
+      font-size: 14px;
+      white-space: nowrap;
+      margin: 15px 3px;
+      line-height: 20px;
+    }
+    .heart {
+      color: white;
+    }
 }
+
+.footer-footer{
+  grid-column: 1/span 4;
+  padding-bottom: 0;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-top: 2px solid white;
+}
+
+h4{
+  color: orange;
+}
+
+.icons{
+  display: inline-flex;
+}
+
+  span{
+    color: white;
+    text-align: left;
+  }
+
+  a {
+    color: white;
+    display: block;
+    margin-bottom: 3px;
+    margin-top: 10px;
+
+    &:hover {
+      color: orange;
+    }
+  }
+
+  h3 {
+    color: white;
+    font-size: 1.6rem;
+
+    & + small {
+      color: white;
+        display: block !important;
+        margin-top: 2px;
+    }
+}
+
+.txt-pad{
+  border-radius: 5px;
+  display: flex;
+  background: white;
+  img{
+    padding: none;
+    width: initial;
+    height: initial;
+  }
+}
+
+@media only screen and (max-width: 860px){
+  footer{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2;
+  }
+}
+
+@media only screen and (max-width: 470px)  {
+  footer{
+    display: block;
+    margin-top: 50px;
+    padding: 30px;
+
+    .nav{
+      margin-top: 20px;
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .footer-footer{
+    margin-top: 10px;
+    border-top: none;
+  }
+
+  .copyright{
+    font-size: 5px;
+    line-height: 5px;
+  }
+}
+
+
+/*
+ <div class="footer-footer">
+                    <div class="icons">
+                        <img src="@/assets/footer_icons/facebook_32.png" alt="">
+                        <img src="@/assets/footer_icons/google_plus_32.png" alt="">
+                        <img src="@/assets/footer_icons/twitter_32.png" alt="">
+                        <img src="@/assets/footer_icons/instagram_32.png" alt="">
+                    </div>
+                    <div class="copyright">2021 copyright <img src="@/assets/footer_icons/copyright_16.png" alt="">Protek Ltd. All Rights Reserved</div>
+                </div>
+                */

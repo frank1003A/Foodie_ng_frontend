@@ -21,7 +21,7 @@
     padding: 16px;
     justify-content: flex-start;
     display: flex;
-    border-left: 2px solid orange;
+    //border-left: 2px solid orange;
 
     .photo{
         padding: 80px;
@@ -51,5 +51,35 @@
             font: .9em sans-serif;
             color: #333;
         }
+    }
+}
+
+
+@media only screen and (max-width: 470px){
+
+    .profile-grid-container{
+        min-height: 100vh;
+    position: relative;
+    background: white;
+    padding: 15px;
+    display: block;
+    margin-top: 90px;
+    border: none;
+    }
+
+    .divider-vertical{
+        display: none;
+    }
+
+    .user{
+        padding: 0;
+    }
+
+    .user .photo{
+        margin-right: -20px;
+    }
+
+    .user .information h5 {
+        font-size: 1.2rem;
     }
 }

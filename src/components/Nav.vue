@@ -1,27 +1,33 @@
 <template>
     <div>
+        <slide-nav v-show="isOpen" :Show="isOpen" @close="isOpen = !isOpen"></slide-nav>
         <div class="front-header">
             <nav>
-                <div>
+
+                <button class="togglebutton" @click="isOpen = !isOpen"><img src="@/assets/icons/menu2_32.png" alt="menu-icon"></button>
+
+                <div class="nav-logo">
                     
                     <h3>Foodie</h3>
-                    <small>Awesome Food and beverages</small>
+                    <small>Food and beverages</small>
                     <!--
                     <img class="logo" src="@/assets/img/logocrop.png" alt="">-->
                 </div>
 
+                <!--
                 <div class="front-search">
                     <span class="ti-search"></span>
                     <input type="search" placeholder="what would you like to eat?" />
                 </div>
+                -->
 
                 <div class="front-nav-links">
                     <div>
-                        <router-link to="/account"><small >Login</small></router-link> | <router-link to="/account"><small>Sign Up</small></router-link>
+                        <router-link to="/account"><small class="btn outlined">Login</small></router-link>  <router-link to="/account"><small class="btn outlined">Sign Up</small></router-link>
                     </div>
 
                     <div v-if="isLogin === true" >
-                        <button class="btn-link"><small ><span class="ti-user"></span>Profile</small></button> | <button class="btn-link"><small><span class="ti-power-off"></span> Logout</small></button>
+                        <button class="btn btn-main-gradient btn-link"><small ><span class="ti-user"></span>Profile</small></button> | <button class="btn btn-main-gradient btn-link"><small><span class="ti-power-off"></span> Logout</small></button>
                     </div>
 
                     <div v-if="isLogin === true" >
@@ -30,9 +36,9 @@
                     
                     <div>
                         <router-link to="/cart" >
-                        <button class="btn btn-main-gradient">
+                        <button class="btn btn-main-gradient" id="cart">
                             <!--<span class="ti-shopping-cart"></span>-->
-                            <span><img src="@/assets/img/cart.png" alt=""></span>
+                            <span><img src="../assets/icons/cartt_16.png" alt=""></span>
                         </button>
                         </router-link>
                     </div>
@@ -43,8 +49,15 @@
 </template>
 
 <script>
+import slideNav from '../components/slideOutMenu.vue'
 export default {
     name: 'Nav',
+    props:{
+        isOpen: Boolean,
+    },
+    components:{
+        slideNav
+    },
     data(){
         return {
             isLogin: false

@@ -1,8 +1,25 @@
+/*!
+
+ =========================================================
+ * Foodie.ng - v1.0.0
+ =========================================================
+
+ * Product Page: github
+ * Copyright 2021 @Protek (http://www.Protek.com)
+ * Licensed under MIT (https://github.com/frank1003A/)
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial tportions of he Software.
+
+ */
+
 import Vue from 'vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
 /*
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
@@ -15,6 +32,8 @@ library.add(faUserSecret)
 
 //Vue.component('font-awesome-icon', FontAwesomeIcon)
 */
+
+
 
 
 //css

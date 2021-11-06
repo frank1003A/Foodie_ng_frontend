@@ -1,5 +1,4 @@
 <template>
-<font-awesome-icon icon="user-secret" />
   <router-view/>
 </template>
 
@@ -8,7 +7,3 @@ export default {
   name: 'App',
 }
 </script>
-
-<style>
-
-</style>

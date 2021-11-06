@@ -1,3 +1,4 @@
+@import '@/assets/scss/variables.scss';
 .front-sidebar {
     //width: 110px;
     width: 80px;
@@ -9,6 +10,7 @@
     left: 0;
     background: rgb(235, 232, 232);
     //box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
     z-index: 100;
 
     .brand {
@@ -98,29 +100,40 @@
 
 @media only screen and (max-width: 800px)  {
     .front-sidebar{
-    width: 100%;
-    padding: 1rem 1rem;
-    height: 10%;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: auto;
-    background: rgb(235, 232, 232);
-    //box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
-    display: flex;
-    z-index: 100;
-    }
-    .front-sidemenu > ul{
-        display: flex;
+        height: 10%;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        padding: 10px;
+        left: 0;
+        right: 0;
+        background: $primary-dark;
+        z-index: 100;
 
-        li{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            margin-bottom: 0;
-            cursor: pointer;
+        .brand{
+            visibility: hidden;
+            display: none;
+        }
+
+        .front-sidemenu {
+            margin-top: 0;
+
+            li{
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                /* margin-bottom: 1.3rem; */
+                margin-right: 55px;
+                cursor: pointer;
+            }
+
+            ul{
+            display: inline-flex;
+            padding: 15px;
+            width: 100%;
         }
     }
-    
 }
+}
+

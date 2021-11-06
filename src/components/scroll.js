@@ -1,4 +1,4 @@
-window.onscroll = function(){
+/*window.onscroll = function(){
     myfunction();
 }
 
@@ -13,3 +13,4 @@ function myfunction(){
         wrap.classList.remove("fixcategory")
     }
 }
+*/

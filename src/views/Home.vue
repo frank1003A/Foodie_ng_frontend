@@ -1,19 +1,35 @@
 <template>
-    <div class="body" id="body">
+    <div class="main-wrapper">
 
         <!-- Top Navbar-->
-        <Nav></Nav>
+        <Nav></Nav> 
 
-        <!-- Side Navbar-->
-        <SideNav></SideNav>
-        
+        <!-- Bottom Navbar -->
+        <BottomNav></BottomNav>
+
+         <!--mid-pad-->
+        <div class="middle-bar">
+            <div class="pathdesc">
+                <p>Home</p>
+            <h3>120 restaurants</h3>
+            </div>
+                    <Searchbar></Searchbar>
+        </div>
+
+        <!-- Slide-->
+        <div class="slide-wrapper">
+            <!--<Slider></Slider>-->
+            <img class="mainvector" src="@/assets/vector2.png" alt="adverts here"> 
+
+            <div class="writeup">
+                <h3>&#8358;0 delivery for 30days!</h3>
+                <label for="">&#8358;0 delivery for orders over &#8358;1000 for 30days</label>
+            </div>
+            <img class="confetti" src="../assets/icons/confetti_64.png" alt="confetti">
+        </div>
+
 
         <div class="front-main">
-
-        <!-- Slide show-->
-        <div class="slide-wrapper">
-            <Slider></Slider> 
-        </div>
         
         
                     <div class="category-wrapper" id="cartwrap" >
@@ -39,22 +55,107 @@
                           </div>
                           -->
                         </ul>
-                
                     </div>
-                   
+
+                    <!--food category--> 
+                    <div class="category-wrapper" id="foodcat" >
+                        <ul>
+                            <li class="active"><img src="../assets/cat-icon/icons_package_32.png" alt="dish"><p>Gift Basket</p></li>
+                            <li><img src="../assets/cat-icon/pizza_32.png" alt=""><p>Snacks</p></li>
+                            <li><img src="../assets/cat-icon/apple_32.png" alt=""><p>Fruits</p></li>
+                            <li><img src="../assets/cat-icon/beer_bottle_32.png" alt=""><p>Drinks</p></li>
+                            <li><img src="../assets/cat-icon/food_32.png" alt="dish"><p>Food</p></li>
+                        </ul>
+                    </div>
+
+                    <!--main-tabs for cart and filter view in screens above 900px 
+                    <div class="main-tabs">
+                    <button :class="isActive === 0? 'is-active': ''" @click="isActive = 0">Cart</button>
+                    <button :class="isActive === 1? 'is-active': ''" @click="isActive = 1">Filter</button>
+        </div>
+        -->
+
+             <div class="dividersolid"></div>      
 
             <div class="main-grid">
-                <div class="menu-section">
-                    <h3></h3>    
 
-                    <div class="menu-grid">
-                        <div  class="menu-card" :style="`background-image: url(${item.image})`" v-for="(item, index) in item" :key="index"
-                         >
+                <!-- code within this comment are media queries for smaller screens-->
+
+              <!--View all menu in the nearby filer --> 
+              <div class="menu-section" id="Nearby">
+                    <h3><img src="../assets/img/location_16.png" alt="">Nearby</h3>    
+
+                    <div class="menu-flex">
+                        <div  
+                        class="menu-card" 
+                        :style="`background-image: url(${item.image})`" 
+                        v-for="(item, index) in item" :key="index">
                             <div>
                                 <span class="bg-main-gradient item-price">
                                     <span>&#8358;</span> {{item.price}}
                                 </span>
-                                <span>
+                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
+                            </div>
+                            <div>
+                                <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
+                            </div>
+
+                            <button @click="pushtoCart(item)" class="btn btn-main-gradient">
+                            <span class="ti-plus"></span>
+                            add to cart 
+                            </button>
+                            
+                        </div>
+                    </div>    
+                             <!--<Pagination></Pagination>-->
+                </div>
+
+                <div class="dividersolid"></div>
+                
+                <!--View all menu in the top rated filter--> 
+              <div class="menu-section" id="Toprated">
+                    <h3><img src="../assets/img/rated_16.png" alt="">Top Rated</h3>    
+
+                    <div class="menu-flex">
+                        <div  
+                        class="menu-card" 
+                        :style="`background-image: url(${item.image})`" 
+                        v-for="(item, index) in item" :key="index">
+                            <div>
+                                <span class="bg-main-gradient item-price">
+                                    <span>&#8358;</span> {{item.price}}
+                                </span>
+                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
+                            </div>
+                            <div>
+                                <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
+                            </div>
+
+                            <button @click="pushtoCart(item)" class="btn btn-main-gradient">
+                            <span class="ti-plus"></span>
+                            add to cart 
+                            </button>
+                            
+                        </div>
+                    </div>    
+                             <!--<Pagination></Pagination>-->
+                </div>  
+
+                <div class="dividersolid"></div>
+
+                <!--View all menu without filter--> 
+                <div class="menu-section" id="all">
+                    <h3><img src="../assets/img/all_16.png" alt="dish">All</h3>    
+
+                    <div class="menu-grid">
+                        <div  
+                        class="menu-card" 
+                        :style="`background-image: url(${item.image})`" 
+                        v-for="(item, index) in item" :key="index">
+                            <div>
+                                <span class="bg-main-gradient item-price">
+                                    <span>&#8358;</span> {{item.price}}
+                                </span>
                                   <!--
                                   <span class="bg-main-gradient img-1 wishlist">
                                     
@@ -69,7 +170,7 @@
                                  <!-- <img src="../assets/img/love_a.png" alt=""></span> 
                                 </span>
                                 -->
-                                </span>
+                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
                             </div>
                             <div>
                                 <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
@@ -79,97 +180,10 @@
                             <span class="ti-plus"></span>
                             add to cart 
                             </button>
-
+                            
                         </div>
                     </div> 
-                    <div>
-                      <div class="order-wrapper">
-                        <div class="cart-sum">
-                                <div class="cart-address">
-                                    <h3>My Orders</h3>
-                                    <div class="price-block">
-                                        <div>
-                                            <small><b>Delivery address</b></small>
-                                                <div class="custom-select">
-                                                    <select name="location" id="order-location">
-                                                        <option value="">1314 Morris Street</option>
-                                                        <option value=""></option>
-                                                    </select>
-                                                </div>
-                                        </div>
-
-                                        <div class="timedistance">
-                                            <span><img src="../assets/img/best_16.png" alt=""> 40 mins</span>
-                                            <span><img src="../assets/img/location_16.png" alt=""> 4 kms</span>
-                                        </div>
-
-                                       <!-- <button class="btn btn-main-gradient btn-block" @click="$emit('show')">
-                                            <span class="ti-location-pin"></span> Change
-                                        </button>-->
-                                    </div>
-
-                                    <div>
-
-                                    <div class="dividersolid"></div>
-
-                                      <!--cart item-->
-                                      <div class="cart-body">
-                            <div class="cart-items">
-                                <div class="cart-item" v-for="(item, index) in cart" :key="index">
-                                    <div class="cart-info">
-                                        <span class="ti-trash"></span>
-                                        <span><img :src="item.image" alt=""></span>
-                                        <div>
-                                            <h4>{{item.name}}</h4>
-                                            <small>&#8358; {{item.price}}</small>
-                                        </div>
-                                    </div>
-                                    </div>  
-                                </div>
-                            </div>
-                                      <!--cart item end-->
-
-                                      <div class="dividersolid"></div>
-
-                                    <div class="price-flex">
-                                        <small>Subtotal</small>
-                                        <small>{{selectedItem.price}}</small>
-                                    </div>
-                                    <div class="price-flex">
-                                        <small>Delivery fee</small>
-                                        <small>{{selectedItem.price/0.1}}</small>
-                                    </div>
-                                    <div class="promo">
-                                        <div class="coupon-flex">
-                                            promotion 
-                                            <button class="btn btn-small btn-main-gradient">Add Coupon</button>
-                                        </div>
-                                    </div>
-                                    <div class="dividersolid"></div>
-
-                                    <div class="price-flex">
-                                        <small>Total</small>
-                                        <h4>{{selectedItem.price}}</h4>
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="cart-pay-btn">
-                                    <button class="btn btn-main-gradient"><span class="ti-credit-card"></span>CHECKOUT</button>   
-                                    <br/>
-                                    <button v-if="address != ''" class="btn btn-success" @click="$emit('show')">
-                                        Add delivery address
-                                    </button>
-                                    <br/>
-                                    <button v-if="user != ''" class="btn btn-success" @click="$router.push('/account')">
-                                        Login to continue
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-              </div> 
-
+        <!--            
         <Modal v-if="showItemInfo" @close="showItemInfo = false">
             <template v-slot:header>
                     <h4>{{selectedItem.name}}</h4>
@@ -188,20 +202,22 @@
                     </div>
                 </ul>
             </template>
-        </Modal>        
-
+        </Modal>
+        -->        
+<Pagination></Pagination>
                 </div>
 
 
-        <!-- Cart Tab   
+        <!--Cart Tab-->
         <Order @show="showAddressModal = true" 
         :cartLength="(cart.length).toLocaleString()" 
         :cart="cart"
         :address="address" 
         :user="email" >
         </Order>
+    
 
-        
+        <!--
         <Modal v-if="showAddressModal" @close="showAddressModal = false">
             <template v-slot:header>
                 <h4>Provide your address</h4>
@@ -216,8 +232,15 @@
         </Modal>
         --> 
 
+        <!--
+        <div class="cart-section">
+        <component :is="compsArr[isActive]" :cart="cart" :user="user" :address="address"></component>
+        </div>
+        -->
+
+     </div>
     </div>
-    </div>
+     <Footer id="extupFooter"></Footer>
     </div>
 </template>
 
@@ -225,14 +248,23 @@
 import Nav from '../components/Nav.vue'
 import Modal from '../components/Modal.vue'
 import SideNav from '../components/SideNav.vue'
-import Slider from '../components/Slider.vue'
 import Order from '../components/Order.vue'
+import BottomNav from '../components/Bottom_Navbar.vue'
+import Slider from '../components/Slider.vue'
+import Footer from '../components/Footer.vue'
+import Searchbar from '../components/Searchbar.vue'
+import Pagination from '../components/Pagination.vue'
+import FilterTab from '../components/FIlterTab.vue'
 import image1 from '@/assets/newimg/jollofrice.jpg'
 import image2 from '@/assets/newimg/friedrice.jpg'
 import image3 from '@/assets/newimg/food1.jpg'
 import image4 from '@/assets/newimg/food2.jpg'
 import image5 from '@/assets/newimg/food3.jpg'
 import image6 from '@/assets/newimg/burger.jpg'
+import image7 from '@/assets/newimg/amala_ewedu.jpg'
+import image8 from '@/assets/newimg/dish1.jpg'
+import image9 from '@/assets/newimg/dish2.jpg'
+import CartTab from '../components/CartTab.vue'
 
 export default {  
   name: 'Home',
@@ -240,8 +272,14 @@ export default {
       Nav, 
       Modal,
       SideNav,
-      Order,
+      BottomNav,
       Slider,
+      Footer,
+      Pagination,
+      Searchbar,
+      FilterTab,
+      CartTab,
+      Order
   },
   data() {
     return {
@@ -253,6 +291,11 @@ export default {
         showItemInfo: false,
         total:'',
         Dfee: '',
+        compsArr: [
+                CartTab,
+                FilterTab,
+            ],
+        isActive: 0,
         selectedItem: [],
         item:[
             {
@@ -303,6 +346,31 @@ export default {
           image: image6,
           status: 'Available till 6pm today'
         },
+        {
+          name: 'Amala and ewedu',
+          price: '2500.00',
+          restaurant: 'Emeka Restaurant',
+          menu: 'green menu',
+          image: image7,
+          status: 'Available till 6pm today'
+        },
+        {
+          name: 'Beans and wheat',
+          price: '1000.00',
+          restaurant: 'D Restaurant',
+          menu: 'green menu',
+          image: image8,
+          status: 'Available till 6pm today'
+        },
+        {
+          name: 'Rice crispies',
+          price: '2000.00',
+          restaurant: 'D Restaurant',
+          menu: 'green menu',
+          image: image9,
+          status: 'Available till 6pm today'
+        },
+        
         ],
         cart: [
             {
@@ -313,23 +381,29 @@ export default {
           image: image1,
           status: 'Available till 6pm today'
         },
-        ],
-        cart: [
-            {
-          name: 'Fried rice and chicken',
-          price: '1200.00',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: image1,
+        {
+          name: 'Beans and wheat',
+          price: '1000.00',
+          restaurant: 'D Restaurant',
+          menu: 'green menu',
+          image: image8,
           status: 'Available till 6pm today'
         },
-        ]
+        {
+          name: 'Rice crispies',
+          price: '2000.00',
+          restaurant: 'D Restaurant',
+          menu: 'green menu',
+          image: image9,
+          status: 'Available till 6pm today'
+        },
+        ],
     }
   },
   methods: {
       pushtoCart(itemm){
             this.cart = [itemm]
-      }
+      },
   },
 }
 </script>

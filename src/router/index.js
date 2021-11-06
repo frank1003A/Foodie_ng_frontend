@@ -7,6 +7,8 @@ import Profile from '../views/Profile.vue'
 import Restaurant from '../components/CreateRestaurant.vue'
 import Cart from '../views/Cart.vue'
 import Wallet from '../views/Wallet.vue'
+import Cravelist from '../views/Cravelist.vue'
+import Restaurants from '../views/Restaurants.vue'
 
 //admin routes
 import Login from '../views/Admin/Login.vue'
@@ -39,6 +41,16 @@ const routes = [
     path: '/wallet',
     name: 'Wallet',
     component: Wallet
+  },
+  {
+    path: '/cravelist',
+    name: 'Cravelist',
+    component: Cravelist
+  },
+  {
+    path: '/restaurants',
+    name: 'Restaurants',
+    component: Restaurants
   },
   {
     path: '/restaurant/account',

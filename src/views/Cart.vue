@@ -4,11 +4,22 @@
         <!-- Top Navbar-->
         <Nav></Nav>
 
-        <!-- Side Navbar -->
+         <!--mid-pad-->
+        <div class="middle-bar">
+        </div>
+
+        <!-- Side Navbar 
         <SideNav></SideNav>
+        -->
 
 
-        <div class="grid-container">
+        <div v-if="cart.length == 0" class="grid-container" id="empty">
+                <img src="../assets/icons/big_shopping_cart_64.png" alt="">
+                <p>Your basket is empty</p>
+                <label for="">Make your basket happy and add food items to it</label>
+        </div>
+
+        <div v-else class="grid-container">
             <div class="order">
                 <!--cart header-->
                 <div class="cart-header">
@@ -21,57 +32,55 @@
                                 <div class="cart-item" v-for="(item, index) in cart" :key="index">
                                     <div class="cart-info">
                                         <span class="ti-trash"></span>
-                                        <span><img :src="item.image" alt=""></span>
+                                        <span><img :src="`${item.image}`" alt="image"></span>
                                         <div>
-                                            <h4>{{item.name}}</h4>
-                                            <small>&#8358; {{item.price}}</small>
+                                            <h5>{{item.name}}</h5>
+                                            <small>{{item.price}}</small>
                                         </div>
                                     </div>
-                                    </div>  
+                                    <div class="cart-controls">
+                                        <input type="text" readonly :value="item.qty">
+                                        <div>
+                                            <span class="ti-angle-up" >+</span>
+                                            <span class="ti-angle-down">-</span>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
                             </div>
                 <!--cart item end-->
             </div>
+
             <div class="payment-summary">
                     <div class="cart-sum">
-                        <h3>Payment Summary</h3>
-                        <br/>
-                                <div class="cart-address">
-                                    <div class="price-block">
-                                        <div>
-                                            <small><b>Delivery address</b></small>
-                                                <div class="custom-select">
-                                                    <select name="location" id="order-location">
-                                                        <option value="">1314 Morris Street</option>
-                                                        <option value=""></option>
-                                                    </select>
-                                                </div>
+                        <div class="promo">
+                                        <div class="coupon-flex">
+                                            <input type="text" class="form-control" placeholder="coupon code"/>
+                                            <button class="btn btn-main-gradient btn-block">Apply</button>
                                         </div>
-
-                                        <div class="timedistance">
-                                            <span><img src="../assets/img/best_16.png" alt=""> 40 mins</span>
-                                            <span><img src="../assets/img/location_16.png" alt=""> 4 kms</span>
-                                        </div>
-
-                                       <!-- <button class="btn btn-main-gradient btn-block" @click="$emit('show')">
-                                            <span class="ti-location-pin"></span> Change
-                                        </button>-->
                                     </div>
-                                    <div class="dividersolid"></div>
+
+                                    <br/>
+                                    <br/>
+
                                     <div class="price-flex">
-                                        <small>Subtotal</small>
+                                        <small>Cart total</small>
                                         <small>&#8358; 2,000.00</small>
                                     </div>
                                     <div class="price-flex">
                                         <small>Delivery fee</small>
                                         <small>&#8358; 250.00</small>
                                     </div>
-                                    <div class="promo">
-                                        <div class="coupon-flex">
-                                            <input type="text" class="form-control-small" placeholder="coupon code"/>
-                                            <button class="btn btn-small btn-main-gradient">Apply</button>
-                                        </div>
+                                    <div class="price-flex">
+                                        <small>Tax(5%)</small>
+                                        <small>&#8358; 100.00</small>
                                     </div>
+
+                                    <div class="price-flex">
+                                        <small>Promo Discount(5%)</small>
+                                        <small>- &#8358; 0.00</small>
+                                    </div>
+
                                     <div class="dividersolid"></div>
 
                                     <div class="price-flex">
@@ -82,18 +91,17 @@
                                 </div>
 
                                 <div class="cart-pay-btn">
-                                    <button class="btn btn-main-gradient"><span class="ti-credit-card"></span>CHECKOUT</button>   
+                                    <button class="btn btn-main-gradient btn-block"><span class="ti-credit-card"></span>CHECKOUT</button>   
                                     <br/>
-                                    <button v-if="address != ''" class="btn btn-success" @click="$emit('show')">
+                                    <button v-if="address != ''" class="btn btn-success btn-block" @click="$emit('show')">
                                         Add delivery address
                                     </button>
                                     <br/>
-                                    <button v-if="user != ''" class="btn btn-success" @click="$router.push('/account')">
+                                    <button v-if="user != ''" class="btn btn-success btn-block" @click="$router.push('/account')">
                                         Login to continue
                                     </button>
                                 </div>
-                            </div>
-
+            </div>
             </div>
         </div>
         
@@ -121,7 +129,7 @@
                 </div>
             </template>
         </Modal>
-    </div>
+    <Footer></Footer>
 </template>
 
 <script>
@@ -130,6 +138,8 @@ import Nav from '../components/Nav.vue'
 import SideNav from '../components/SideNav.vue'
 import Modal from '../components/Modal.vue'
 import Card from '../components/Card.vue'
+import Footer from '../components/Footer.vue'
+import Searchbar from '../components/Searchbar.vue'
 import image1 from '@/assets/newimg/jollofrice.jpg'
 import image2 from '@/assets/newimg/friedrice.jpg'
 import image3 from '@/assets/newimg/food1.jpg'
@@ -144,7 +154,9 @@ export default {
         Nav,
         Modal,
         SideNav,
-        Card
+        Card,
+        Footer,
+        Searchbar
     },
     data() {
         return {
@@ -169,28 +181,12 @@ export default {
           image:image2,
           status: 'Available till 6pm today'
         },
-         {
+        {
           name: 'Amala and ewedu',
           price: '1500.00',
           restaurant: 'Onehouse Restaurant',
           menu: 'green menu',
           image:image3,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Fried rice and chicken',
-          price: '1200.00',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: image4,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000.00',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image : image5,
           status: 'Available till 6pm today'
         },
         ]

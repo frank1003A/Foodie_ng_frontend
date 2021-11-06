@@ -3,8 +3,7 @@
         <!-- Top Navbar-->
         <Nav></Nav>
 
-        <!-- Side Navbar -->
-        <SideNav></SideNav>
+        
 
     <div class="profile-grid-container">
         <div class="user">
@@ -13,7 +12,7 @@
             </div>
             <div class="information">
                 <h5>Chidiebere Ezene</h5>
-                <p>User</p>
+                <p>ezenechidi@gmail.com</p>
                 <br/>
                 <div class="buttons">
                     <button class="btn btn-success">Contact</button>
@@ -31,20 +30,78 @@
             </div>
             <div class="divider-vertical"></div>
         </div>
+        
+                <button class="accordion">
+                    Section 1
+                    <span class="accordion-item-trigger-icon"></span>
+                    </button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit, 
+                        amet consectetur adipisicing elit. 
+                        Debitis saepe ea optio. 
+                        Possimus voluptas beatae maiores harum debitis ratione culpa assumenda asperiores corporis quidem quasi, voluptates sint. Doloremque, aperiam soluta.
+                    </p>
+                </div>
+                <button class="accordion">
+                    Section 2
+                    <span class="accordion-item-trigger-icon"></span>
+                </button>
+                <div class="panel">
+                    <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control-small" placeholder="&#8358; 2000.00" />
+            <br/>
+            <span class="under">commision: &#8358; 20.00 </span>
+        </div>
+                </div>
+                <button class="accordion">
+                    Section 3
+                    <span class="accordion-item-trigger-icon"></span>
+                </button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit, 
+                        amet consectetur adipisicing elit. 
+                        Debitis saepe ea optio. 
+                        Possimus voluptas beatae maiores harum debitis ratione culpa assumenda asperiores corporis quidem quasi, voluptates sint. Doloremque, aperiam soluta.
+                    </p>
+                </div>
+
     </div>
 </div>
+<Footer></Footer>
 </template>
+
 <script>
 import Nav from '../components/Nav.vue'
 import SideNav from '../components/SideNav.vue'
 import Modal from '../components/Modal.vue'
+import Footer from '../components/Footer.vue'
+import {acc} from '../views/accordion.js'
+
 export default {
     name: 'Profile',
     components:{
         Nav,
         SideNav,
-        Modal
-    }
+        Modal,
+        Footer
+    },
+    mounted() {
+        const acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for(i = 0; i < acc.length; i++){
+        acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block"){
+            panel.style.display = "none";
+        }else{
+            panel.style.display = "block";
+        } });
+        }
+    },
 }
 </script>
 

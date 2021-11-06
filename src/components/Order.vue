@@ -1,81 +1,77 @@
 <template>
-    <div class="cart-section">
-            <div class="cart-item-">
-                    <div class="cart-card">
-                        <div class="cart-header">
-                            <h3>New Order</h3>
-                            <small>{{cartLength}} items in cart </small>
-                        </div>
+<div class="order-wrapper">
+                        <div class="cart-sum">
+                                <div class="cart-address">
+                                    <h3>My Orders</h3>
+                                    <div class="price-block">
+                                        <div>
+                                            <small><b>Delivery address</b></small>
+                                                <div class="custom-select">
+                                                    <select name="location" id="order-location">
+                                                        <option value="">1314 Morris Street</option>
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                        </div>
 
-                        <div class="cart-body">
+                                        <div class="timedistance">
+                                            <span><img src="../assets/img/best_16.png" alt=""> 40 mins</span>
+                                            <span><img src="../assets/img/location_16.png" alt=""> 4 kms</span>
+                                        </div>
+
+                                       <!-- <button class="btn btn-main-gradient btn-block" @click="$emit('show')">
+                                            <span class="ti-location-pin"></span> Change
+                                        </button>-->
+                                    </div>
+
+                                    <div>
+
+                                    <div class="dividersolid"></div>
+
+                                      <!--cart item-->
+                                      <div class="cart-body">
                             <div class="cart-items">
                                 <div class="cart-item" v-for="(item, index) in cart" :key="index">
                                     <div class="cart-info">
                                         <span class="ti-trash"></span>
-                                        <span><img src="@/assets/simg/img1.jpg" alt=""></span>
+                                        <span><img :src="item.image" alt="image"></span>
                                         <div>
                                             <h4>{{item.name}}</h4>
                                             <small>&#8358; {{item.price}}</small>
                                         </div>
                                     </div>
-                                    </div>
-                                        <!--
-                                            <div class="cart-price">
-                                        <h4>&#8358; {{item.price}}</h4>
-                                    </div>
-                                    <div class="counter">
-                                            <div class="btn">+</div>
-                                            <div class="count"><input  type="text" readonly :value="item.qty"/></div>
-                                            <div class="btn">-</div>
-                                        </div>
-
-                                            <input  type="text" readonly :value="item.qty"/>
-                                        <div class="cart-controls">
-                                        <div>
-                                            <span class="ti-angle-up" @click="updateItemQty(index,item,1)">+</span>
-                                            <span class="ti-angle-down" @click="updateItemQty(index,item,0)">-</span>
-                                        </div>
-                                        </div>
-                                        -->
-                                    
-                                    
+                                    </div>  
                                 </div>
                             </div>
+                                      <!--cart item end-->
 
-                    <div class="order-wrapper">
+                                      <div class="dividersolid"></div>
 
-                     <div class="cart-sum">
-                                <div class="cart-address">
-                                    <h3>Payment Summary</h3>
-                                    <div class="dividersolid"></div>
-                                    <div class="price-flex">
-                                        <div>
-                                            <small><b>Address</b></small>
-                                            <p>address here</p>
-                                        </div>
-                                        <button class="btn btn-main-gradient" @click="$emit('show')">
-                                            <span class="ti-location-pin"></span> Change
-                                        </button>
-                                    </div>
-
-                                    <div>
                                     <div class="price-flex">
                                         <small>Subtotal</small>
-                                        <small>cart total</small>
+                                        <small>&#8358; 2,000.00</small>
                                     </div>
                                     <div class="price-flex">
-                                        <small>Delivery</small>
-                                        <small>total</small>
+                                        <small>Delivery fee</small>
+                                        <small>&#8358; 250.00</small>
                                     </div>
+                                    <div class="promo">
+                                        <div class="coupon-flex">
+                                            <input type="text" class="form-control" placeholder="coupon code"/>
+                                            <button class="btn btn-small btn-main-gradient btn-block">Apply</button>
+                                        </div>
+                                    </div>
+                                    <div class="dividersolid"></div>
 
                                     <div class="price-flex">
                                         <small>Total</small>
-                                        <h4>cart total</h4>
+                                        <h4>&#8358; 2,250.00</h4>
                                     </div>
+                                    
                                 </div>
 
                                 <div class="cart-pay-btn">
-                                    <button class="btn btn-success"><span class="ti-credit-card"></span>CHECKOUT</button>   
+                                    <button class="btn btn-block btn-main-gradient btn-big"><span class="ti-credit-card"></span>CHECKOUT</button>   
                                     <br/>
                                     <button v-if="address != ''" class="btn btn-success" @click="$emit('show')">
                                         Add delivery address
@@ -87,17 +83,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="cart-sum">
-                            <h4>Redeem coupon</h4>
-                            <div class="dividersolid"></div>
-                        <input type="text" class="form-control-small" placeholder="coupon code"/>
-                        <button class="btn btn-main-gradient">Apply</button>
-                        </div>
-                        </div>
-                        </div>
-            </div>  
-            </div>  
+                      </div>
 </template>
 
 <script>

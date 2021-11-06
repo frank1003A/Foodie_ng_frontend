@@ -45,7 +45,7 @@
 export default {
     name:'SideNav',
     props:{
-        categories: Array 
+        categories: Array, 
     },
     data() {
         return {

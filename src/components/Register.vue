@@ -1,5 +1,5 @@
 <template>
-    <div class="account-form">
+     <div class="account-form">
         <!--
         <h3>Create your account</h3>
         <div class="form-group">

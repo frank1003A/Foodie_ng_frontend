@@ -6,8 +6,8 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 50px;
-    padding: 150px;
-    padding-right: 80px;
+    //padding: 150px;
+    //padding-right: 80px;
     border: none;
 
     .user{
@@ -17,27 +17,46 @@
 
 .user{
     grid-column: 1/ span 3;
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+    //box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
     padding: 16px;
     justify-content: flex-start;
     display: flex;
     //border-left: 2px solid orange;
+    position: relative;
+    margin-top: 30px;
+    min-height: 200px;
 
-    .photo{
-        padding: 80px;
-        margin-right: 20px;
+    #image1{
+        padding: 10px;
+        height: 70px;
+        width: 70px;
+        margin: 65px 30px;
+        margin-left: 40%;
         size: 50px;
         background: white;
         border-radius: 50%;
-        img{
-            width: fit-content;
-            height: fit-content;
         }
-    }
+
+        #badge1{
+            background: #1D2231;
+            color: white;
+            display: inline-block;
+            height: 30px;
+            font-size: 12px;
+            line-height: 1;
+            padding: 3px 4;
+            margin-left: -50px ;
+            margin-top: 60px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
 
     .information{
         display: inline-block;
-        padding-top: 30px ;
+    margin: 78px 70px;
+    color: white;
+}
 
         .buttons{
             display: flex;
@@ -51,6 +70,28 @@
             font: .9em sans-serif;
             color: #333;
         }
+}
+
+.radioflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: 180px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.flexg {
+    display: flex;
+    justify-content: space-between;
+
+    p{
+       display: block;
+       font-weight: 600;
+       color: grey;
     }
 }
 
@@ -61,10 +102,19 @@
         min-height: 100vh;
     position: relative;
     background: white;
-    padding: 15px;
+    //padding: 15px;
     display: block;
-    margin-top: 90px;
+    //margin-top: 90px;
     border: none;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .cont {
+        margin: 20px
+    ;
     }
 
     .divider-vertical{

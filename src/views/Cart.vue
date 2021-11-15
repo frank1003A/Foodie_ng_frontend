@@ -25,10 +25,11 @@
                 <div class="cart-header">
                             <h3>New Order</h3>
                             <small>{{cart.length}} items in cart</small>
+                            <a id="back" href="/"> &lt; Back</a>
                         </div>
                 <!--cart item-->
                                       <div class="cart-body">
-                            <div class="cart-items">
+                            <div class="cart-items" id="cartPage">
                                 <div class="cart-item" v-for="(item, index) in cart" :key="index">
                                     <div class="cart-info">
                                         <span class="ti-trash"></span>
@@ -50,7 +51,7 @@
                             </div>
                 <!--cart item end-->
             </div>
-
+            <div class="dividersolid"></div>
             <div class="payment-summary">
                     <div class="cart-sum">
                         <div class="promo">
@@ -129,7 +130,7 @@
                 </div>
             </template>
         </Modal>
-    <Footer></Footer>
+    <Footermain></Footermain>
 </template>
 
 <script>
@@ -139,6 +140,7 @@ import SideNav from '../components/SideNav.vue'
 import Modal from '../components/Modal.vue'
 import Card from '../components/Card.vue'
 import Footer from '../components/Footer.vue'
+import Footermain from '../components/Footer_main.vue'
 import Searchbar from '../components/Searchbar.vue'
 import image1 from '@/assets/newimg/jollofrice.jpg'
 import image2 from '@/assets/newimg/friedrice.jpg'
@@ -156,7 +158,8 @@ export default {
         SideNav,
         Card,
         Footer,
-        Searchbar
+        Searchbar,
+        Footermain
     },
     data() {
         return {
@@ -166,6 +169,30 @@ export default {
         showAddressModal: false,
         cart: [
              {
+          name: 'Fried rice and chicken',
+          price: '1200.00',
+          restaurant: 'KFC Restaurant',
+          menu: 'Sunday Specials',
+          image: image1,
+          status: 'Available till 6pm today'
+        },
+        {
+          name: 'Beans and wheat',
+          price: '1000.00',
+          restaurant: 'Onehouse Restaurant',
+          menu: 'green menu',
+          image:image2,
+          status: 'Available till 6pm today'
+        },
+        {
+          name: 'Amala and ewedu',
+          price: '1500.00',
+          restaurant: 'Onehouse Restaurant',
+          menu: 'green menu',
+          image:image3,
+          status: 'Available till 6pm today'
+        },
+        {
           name: 'Fried rice and chicken',
           price: '1200.00',
           restaurant: 'KFC Restaurant',

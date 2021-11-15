@@ -3,11 +3,12 @@
      <!-- Top Navbar-->
         <Nav></Nav>
 
-        <!-- Bottom Navbar -->
+        <!-- Bottom Navbar 
         <BottomNav></BottomNav>
+        -->
 
 
-        <!--mid-pad--->
+        <!--mid-pad
         <div class="middle-bar">
             <div class="pathdesc">
                 <p>Home > Cart</p>
@@ -15,6 +16,7 @@
             </div>
                     <Searchbar></Searchbar>
         </div>
+        --->
 
 
 

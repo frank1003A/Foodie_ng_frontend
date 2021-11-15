@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 .search-bar {
             display: flex;
-            width: 30%;
+            width: 100%;
 
             span {
                 padding: 1rem 1.4rem;

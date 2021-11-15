@@ -1,9 +1,13 @@
 <template>
-<div>
-<div class="account-image">
+    <div class="account-wrapper">
+
+        <!--vector image-->
+        <div class="account-image">
      <img src="../assets/vector_1.png" alt="vector image" class="v1">
             </div>
-    <div class="account-wrapper">
+
+
+            <!--form section-->
         <div class="account-container">
             <div class="account-inner">
                 <div class="account-header">
@@ -26,7 +30,6 @@
                     <p>By clicking the button below, you agree to our <a href="">terms of use</a> and <a href="">privacy policy</a></p>
                 </div>
         </div>
-    </div>
     </div>
 </template>
 

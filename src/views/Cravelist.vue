@@ -4,8 +4,9 @@
     <!-- Top Navbar-->
         <Nav></Nav>
 
-        <!-- Bottom Navbar -->
-        <BottomNav></BottomNav>
+        <!-- Bottom Navbar
+        <BottomNav :cart="cart"></BottomNav>
+        -->
 
          <!--mid-pad-->
         <div v-if="cravelist.length == 0" class="middle-bar">
@@ -21,6 +22,11 @@
         <img src="../assets/icons/Cravelist_folder_64.png" alt="">
                 <p>Your cravelist is empty</p>
                 <label for="">Save items you love in cravelist</label>
+                <br/>
+                <br/>
+                <div class="form-group form-link">
+                <router-link to="/"><button class="btn btn-main-gradient">Add to Cravelist</button></router-link>
+                </div>
     </div>
     <div v-else class="crave-container">
          <!--cart item-->
@@ -69,7 +75,7 @@
                 </div> 
     </div>         
 </div>
-<Footer id="extupFooter"></Footer>
+<Footermain></Footermain>
 </template>
 
 <script>
@@ -78,6 +84,7 @@ import SideNav from '../components/SideNav.vue'
 import BottomNav from '../components/Bottom_Navbar.vue'
 import Modal from '../components/Modal.vue'
 import Footer from '../components/Footer.vue'
+import Footermain from '../components/Footer_main.vue'
 import image1 from '@/assets/newimg/jollofrice.jpg'
 import image2 from '@/assets/newimg/friedrice.jpg'
 import image3 from '@/assets/newimg/food1.jpg'
@@ -89,7 +96,8 @@ export default {
         Modal,
         Footer,
         SideNav,
-        BottomNav
+        BottomNav,
+        Footermain
     },
     props:{
         item: Array,
@@ -97,7 +105,6 @@ export default {
     data(){
         return{
             cravelist: [
-                 
             ]
         }
     }
@@ -112,12 +119,12 @@ export default {
         visibility: visible;
     }
     .crave-container{
-    max-height: 100vh;
+    min-height: 100vh;
     position: relative;
     background: #fff;
     display: block;
     padding: 10px;
-    margin-bottom: 50%;
+    margin-bottom: -126px;
     //margin-top: 80px;
     border: none;
     text-align: center;

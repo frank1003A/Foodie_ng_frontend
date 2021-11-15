@@ -4,22 +4,21 @@
         <!-- Top Navbar-->
         <Nav></Nav> 
 
+        <!-- Side Navbar-->
+        <SideNav></SideNav>
+
         <!-- Bottom Navbar -->
-        <BottomNav></BottomNav>
+        <BottomNav :cart="cart"></BottomNav>
 
          <!--mid-pad-->
         <div class="middle-bar">
-            <div class="pathdesc">
-                <p>Home</p>
-            <h3>120 restaurants</h3>
-            </div>
                     <Searchbar></Searchbar>
         </div>
 
         <!-- Slide-->
         <div class="slide-wrapper">
             <!--<Slider></Slider>-->
-            <img class="mainvector" src="@/assets/vector2.png" alt="adverts here"> 
+            <img class="mainvector" src="@/assets/img/home-img-1.png" alt="adverts here"> 
 
             <div class="writeup">
                 <h3>&#8358;0 delivery for 30days!</h3>
@@ -73,8 +72,7 @@
                     <button :class="isActive === 0? 'is-active': ''" @click="isActive = 0">Cart</button>
                     <button :class="isActive === 1? 'is-active': ''" @click="isActive = 1">Filter</button>
         </div>
-        -->
-
+-->
              <div class="dividersolid"></div>      
 
             <div class="main-grid">
@@ -83,27 +81,33 @@
 
               <!--View all menu in the nearby filer --> 
               <div class="menu-section" id="Nearby">
-                    <h3><img src="../assets/img/location_16.png" alt="">Nearby</h3>    
-
+                  <div class="cat-header">
+                      <h3><img src="../assets/img/location_16.png" alt="">Nearby</h3>    
+                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
+                    
+                  </div>
                     <div class="menu-flex">
                         <div  
-                        class="menu-card" 
-                        :style="`background-image: url(${item.image})`" 
+                        class="menu-card" :style="`background-image: url(${item.image})`" 
                         v-for="(item, index) in item" :key="index">
                             <div>
                                 <span class="bg-main-gradient item-price">
                                     <span>&#8358;</span> {{item.price}}
                                 </span>
-                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
                             </div>
                             <div>
-                                <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
+                                <span class="item-name">{{item.name}}</span>
+                            </div>
+                            <div class="love-item">
+                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
                             </div>
 
-                            <button @click="pushtoCart(item)" class="btn btn-main-gradient">
-                            <span class="ti-plus"></span>
-                            add to cart 
-                            </button>
+                            <router-link to="/item">
+                               <button @click="(selectedItem = item)" class="btn btn-main-gradient">
+                                    <span class="ti-plus"></span>
+                                add to cart 
+                               </button>
+                               </router-link> 
                             
                         </div>
                     </div>    
@@ -111,11 +115,19 @@
                 </div>
 
                 <div class="dividersolid"></div>
+
+                <!-- about section starts  -->
+                <section></section>
+                <!-- about section ends -->
                 
                 <!--View all menu in the top rated filter--> 
               <div class="menu-section" id="Toprated">
-                    <h3><img src="../assets/img/rated_16.png" alt="">Top Rated</h3>    
-
+                        
+                    <div class="cat-header">
+                      <h3><img src="../assets/img/rated_16.png" alt="">Top Rated</h3>   
+                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
+                    
+                  </div>
                     <div class="menu-flex">
                         <div  
                         class="menu-card" 
@@ -124,12 +136,15 @@
                             <div>
                                 <span class="bg-main-gradient item-price">
                                     <span>&#8358;</span> {{item.price}}
-                                </span>
-                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
-                            </div>
+                                </span> 
+                                </div>
                             <div>
                                 <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
                             </div>
+                            <div class="love-item">
+                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
+                            </div>
+                            
 
                             <button @click="pushtoCart(item)" class="btn btn-main-gradient">
                             <span class="ti-plus"></span>
@@ -143,10 +158,25 @@
 
                 <div class="dividersolid"></div>
 
+                <!--menucard
+                <div class="menu-section">
+                    <div class="menu-grid">
+                            <Menucard :item="item"></Menucard>
+                    </div>
+                </div>
+                -->
+                <section>
+                    
+                </section>
+
                 <!--View all menu without filter--> 
                 <div class="menu-section" id="all">
-                    <h3><img src="../assets/img/all_16.png" alt="dish">All</h3>    
-
+                        
+                     <div class="cat-header">
+                      <h3><img src="../assets/img/all_16.png" alt="dish">All</h3>  
+                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
+                    
+                  </div>
                     <div class="menu-grid">
                         <div  
                         class="menu-card" 
@@ -170,10 +200,13 @@
                                  <!-- <img src="../assets/img/love_a.png" alt=""></span> 
                                 </span>
                                 -->
-                                <span class="img-1 bg-main-gradient cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
                             </div>
                             <div>
-                                <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
+                                <span class="item-name">{{item.name}}</span>
+                            </div>
+
+                            <div class="love-item">
+                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
                             </div>
 
                             <button @click="pushtoCart(item)" class="btn btn-main-gradient">
@@ -183,7 +216,25 @@
                             
                         </div>
                     </div> 
-        <!--            
+                    
+        <div class="cart-section">
+            <Order @show="showAddressModal = true" 
+        :cartLength="(cart.length).toLocaleString()" 
+        :cart="cart"
+        :address="address" 
+        :user="email" >
+        </Order>
+        </div>
+                    <!--Cart Tab
+        <div class="cart-section">
+            <Order @show="showAddressModal = true" 
+        :cartLength="(cart.length).toLocaleString()" 
+        :cart="cart"
+        :address="address" 
+        :user="email" >
+        </Order>
+        </div>
+                 
         <Modal v-if="showItemInfo" @close="showItemInfo = false">
             <template v-slot:header>
                     <h4>{{selectedItem.name}}</h4>
@@ -207,16 +258,39 @@
 <Pagination></Pagination>
                 </div>
 
+    <section class="about" id="about">
+    <h1 class="heading"> why choose us? </h1>
 
-        <!--Cart Tab-->
-        <Order @show="showAddressModal = true" 
-        :cartLength="(cart.length).toLocaleString()" 
-        :cart="cart"
-        :address="address" 
-        :user="email" >
-        </Order>
-    
+    <div class="row">
 
+        <div class="image">
+            <img src="@/assets/newimg/dish-2.png" alt="">
+        </div>
+
+        <div class="content">
+            <p>Foodie brings the best food, menu's and categories from the best and location strategic restaurants to you.</p>
+           <!--
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>free delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <span>24/7 service</span>
+                </div>
+            </div>
+            -->
+            <a href="#" class="btn btn-main-gradient">learn more</a>
+        </div>
+
+    </div>
+
+    </section>
         <!--
         <Modal v-if="showAddressModal" @close="showAddressModal = false">
             <template v-slot:header>
@@ -237,10 +311,9 @@
         <component :is="compsArr[isActive]" :cart="cart" :user="user" :address="address"></component>
         </div>
         -->
-
      </div>
     </div>
-     <Footer id="extupFooter"></Footer>
+     <Footermain id="extupFooter"></Footermain>
     </div>
 </template>
 
@@ -250,8 +323,10 @@ import Modal from '../components/Modal.vue'
 import SideNav from '../components/SideNav.vue'
 import Order from '../components/Order.vue'
 import BottomNav from '../components/Bottom_Navbar.vue'
+import Menucard from '../components/MenuCard.vue'
 import Slider from '../components/Slider.vue'
 import Footer from '../components/Footer.vue'
+import Footermain from '../components/Footer_main.vue'
 import Searchbar from '../components/Searchbar.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterTab from '../components/FIlterTab.vue'
@@ -265,6 +340,7 @@ import image7 from '@/assets/newimg/amala_ewedu.jpg'
 import image8 from '@/assets/newimg/dish1.jpg'
 import image9 from '@/assets/newimg/dish2.jpg'
 import CartTab from '../components/CartTab.vue'
+import Item from '../components/Item.vue'
 
 export default {  
   name: 'Home',
@@ -279,7 +355,10 @@ export default {
       Searchbar,
       FilterTab,
       CartTab,
-      Order
+      Order,
+      Menucard,
+      Footermain,
+      Item
   },
   data() {
     return {
@@ -291,6 +370,7 @@ export default {
         showItemInfo: false,
         total:'',
         Dfee: '',
+        show: false,
         compsArr: [
                 CartTab,
                 FilterTab,

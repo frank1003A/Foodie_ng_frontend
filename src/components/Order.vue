@@ -26,26 +26,30 @@
 
                                     <div>
 
-                                    <div class="dividersolid"></div>
+                                    <div class="dividersolid" ></div>
 
                                       <!--cart item-->
                                       <div class="cart-body">
-                            <div class="cart-items">
-                                <div class="cart-item" v-for="(item, index) in cart" :key="index">
+                            <div class="cart-item" v-for="(item, index) in cart" :key="index">
                                     <div class="cart-info">
                                         <span class="ti-trash"></span>
-                                        <span><img :src="item.image" alt="image"></span>
                                         <div>
-                                            <h4>{{item.name}}</h4>
-                                            <small>&#8358; {{item.price}}</small>
+                                            <h5>{{item.name}}</h5>
+                                            <small>{{item.price}}</small>
                                         </div>
                                     </div>
-                                    </div>  
+                                    <div class="cart-controls">
+                                        <input type="text" readonly :value="item.qty">
+                                        <div>
+                                            <span class="ti-angle-up" >+</span>
+                                            <span class="ti-angle-down">-</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                                       <!--cart item end-->
 
-                                      <div class="dividersolid"></div>
+                                      <div class="dividersolid" ></div>
 
                                     <div class="price-flex">
                                         <small>Subtotal</small>

@@ -1,5 +1,5 @@
 <template>
-    <div class="account-form">
+      <div class="account-form">
         <h3>Sign into your account</h3>
         <div class="form-group">
             <label for="email">Email</label>
@@ -18,6 +18,7 @@
         <div class="form-group">
             <button class="btn btn-main-gradient btn-block btn-big">Sign in</button>
         </div>
+
 
         <div class="form-group">
             <button class="btn btn-block outlined btn-google btn-big" @click="clckevent"> <span><img src="../assets/icons/google_32.png" alt=""></span>Sign in With Google</button>

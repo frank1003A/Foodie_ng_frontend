@@ -4,8 +4,6 @@
         <div class="front-header">
             <nav>
 
-                <button class="togglebutton" @click="isOpen = !isOpen"><img src="@/assets/icons/menu2_32.png" alt="menu-icon"></button>
-
                 <div class="nav-logo">
                     
                     <h3>Foodie</h3>
@@ -20,7 +18,7 @@
                     <input type="search" placeholder="what would you like to eat?" />
                 </div>
                 -->
-
+                <!--
                 <div class="front-nav-links">
                     <div>
                         <router-link to="/account"><small class="btn outlined">Login</small></router-link>  <router-link to="/account"><small class="btn outlined">Sign Up</small></router-link>
@@ -35,14 +33,19 @@
                     </div>
                     
                     <div>
+                        
                         <router-link to="/cart" >
                         <button class="btn btn-main-gradient" id="cart">
-                            <!--<span class="ti-shopping-cart"></span>-->
-                            <span><img src="../assets/icons/cartt_16.png" alt=""></span>
+                                <span class="ti-shopping-cart"></span>
+                            <span><img src="../assets/icons/cartt_16.png" alt="cart"></span>
                         </button>
                         </router-link>
+                        
                     </div>
+                   
                 </div>
+                 -->
+                <button class="togglebutton" @click="isOpen = !isOpen"><img src="@/assets/icons/menu2_32.png" alt="menu-icon"></button>
             </nav>
         </div>
     </div>

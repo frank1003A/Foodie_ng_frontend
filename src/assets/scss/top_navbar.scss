@@ -6,9 +6,10 @@
     left: 0;
     //top: 20px;
     top: 0;
-    //right: 40px;
+    //right: 40px
     right: 0;
-    padding: 1.3rem 1.8rem;
+    //padding: 1.3rem 1.8rem;
+    padding: 10px;
     background: #fff;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
     //border-top-right-radius: 8px;
@@ -108,7 +109,7 @@
 
 @media only screen and (max-width: 470px)  {
     .front-header{
-        padding: 20px;
+        max-height: 70px;
     }
     small{
         visibility: hidden;
@@ -128,22 +129,28 @@
     }
 }
 
+.front-header nav .front-nav-links div:last-child button {
+    //padding: 0.6rem 1rem;
+    visibility: hidden;
+    display: none;
+}
+
 h3{
     color: #faae0a;
-    text-align: center;
+    //text-align: center;
 
     & + small{
     visibility: visible;
     display: flex;
     margin-top: -4px;
-    color: #faae0a;
+    color: #ececea;
 }
 }
 
 .nav-logo{
-    margin-left: 15% !important;
+   // margin-left: 15% !important;
+   margin-right: auto;
     padding: 0;
-    -webkit-text-security: square;
 }
 
 }
@@ -151,7 +158,7 @@ h3{
 @media only screen and (max-width: 400px)  {
     h3{
         color: #faae0a;
-        text-align: center;
+        //text-align: center;
 
         & + small{
         visibility: visible;

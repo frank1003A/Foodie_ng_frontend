@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="filter-sect">
           <div class="custom-select">
                        <select name="location" id="main-select">
                             <option value="">Sort by popularity</option>
@@ -15,7 +15,7 @@
         <div class="checkbox-options">
           <div class="options">
             <input type="checkbox" name="Pizza" id="italian">
-          <label for="italian">Meals</label>
+          <label for="italan">Meals</label>
           </div>
           <div class="options">
             <input type="checkbox" name="Pizza" id="italian">
@@ -56,7 +56,7 @@
           </div>
         </div>
         </div>
-        <!--date option-->
+        <!--date option
         <div class="box">
           <div class="custom-select">
                        <select name="location" id="order-location">
@@ -69,8 +69,7 @@
             <input type="date" name="date" id="date">
           </div>
           </div>
-        </div>
-        <!-- option end-->
+        </div>option end-->
 
         <div class="box">
           <div class="custom-select">
@@ -126,12 +125,12 @@ export default {
         border: 1px solid;
         border-radius: 5px;
         cursor: pointer;
-    
     }
+    
     select{
         width: 100%;
         padding: .5em 1.5em .5em 0;
-        border-radius: 5px;
+        border-radius: 4px;
         background: #f4f4f4;
         border: none;
         outline: none;
@@ -148,12 +147,16 @@ export default {
 .checkbox-options{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: .2rem;
 }
 
 .options{
     display: inline-flex;
     margin-top: 5px;
     margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: center;
 
     input{
         margin-right:5px;

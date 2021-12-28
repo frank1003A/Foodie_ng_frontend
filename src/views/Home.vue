@@ -1,44 +1,199 @@
 <template>
-    <div class="main-wrapper">
+  <div class="main-wrapper">
+    <!-- Top Navbar-->
+    <Nav></Nav>
 
-        <!-- Top Navbar-->
-        <Nav></Nav> 
+    <!--top-section
+    <section id="top-section" class="home-top-section" >
+            
+        </section>
+        -->
 
-        <!-- Side Navbar-->
+    <!-- Side Navbar
         <SideNav></SideNav>
+        -->
 
-        <!-- Bottom Navbar -->
-        <BottomNav :cart="cart"></BottomNav>
+    <!-- Bottom Navbar -->
+    <BottomNav :cart="cart"></BottomNav>
 
-         <!--mid-pad-->
-        <div class="middle-bar">
-                    <Searchbar></Searchbar>
+    <!-- Slide starts here
+    <div class="slide-wrapper">
+      <Slider></Slider>
+      <img
+        class="mainvector"
+        src="@/assets/img/home-img-1.png"
+        alt="adverts here"
+      />
+
+      <div class="writeup">
+        <h3>&#8358;0 delivery for 30days!</h3>
+        <label for=""
+          >&#8358;0 delivery for orders over &#8358;1000 for 30days</label
+        >
+      </div>
+      <img
+        class="confetti"
+        src="../assets/icons/confetti_64.png"
+        alt="confetti"
+      />
+      
+      <div class="advert-cont">
+        <div class="avt-cont">
+          <p>FOODIE</p>
+          <span>More than 300 restaurant</span>
+          <p>Order now at the best prices</p>
+          <input
+            type="button"
+            id="ad-btn"
+            class="btn btn-main-gradient"
+            value="View all"
+          />
         </div>
+      </div>
+      <Searchbar></Searchbar>
+    </div>
+    Slide ends here-->
 
-        <!-- Slide-->
-        <div class="slide-wrapper">
-            <!--<Slider></Slider>-->
-            <img class="mainvector" src="@/assets/img/home-img-1.png" alt="adverts here"> 
+<!-- home section starts -->
+    <section class="home" id="home">
 
-            <div class="writeup">
-                <h3>&#8358;0 delivery for 30days!</h3>
-                <label for="">&#8358;0 delivery for orders over &#8358;1000 for 30days</label>
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper">
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>our special dish</span>
+                    <h3>spicy shawarma</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+                    <a href="#" class="btn">order now</a>
+                    <a href="#" id="learnmore" class="btn outlined">learn more</a>
+                </div>
+                <div class="image">
+                    <img src="../assets/newimg-2/img-ad-1.png" alt="">
+                </div>
             </div>
-            <img class="confetti" src="../assets/icons/confetti_64.png" alt="confetti">
         </div>
 
+        <div class="swiper-pagination"></div>
 
-        <div class="front-main">
-        
-        
-                    <div class="category-wrapper" id="cartwrap" >
-                        <ul>
-                            <li class="active"><img src="../assets/img/all_16.png" alt="dish"><p>All</p></li>
-                            <li><img src="../assets/img/location_16.png" alt=""><p>Nearby</p></li>
-                            <li><img src="../assets/img/rated_16.png" alt=""><p>Top Rated</p></li>
-                            <li><img src="../assets/img/best_16.png" alt=""><p>Best Sellers</p></li>
-                            <li><img src="../assets/img/new_16.png" alt="dish"><p>Newcomers</p></li>
-                              <!--
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+    <section id="tab-section">
+      <div class="tab">
+        <img src="../assets/icons/free_shipping_32.png" id="tabimg" alt="" />
+        <div class="tab-content">
+          <p>Free shipping</p>
+          <label for="">Free delivery for all order</label>
+        </div>
+      </div>
+      <div class="tab">
+        <img src="../assets/icons/money_32.png" id="tabimg" alt="" />
+        <div class="tab-content">
+          <p>Money Gurantee</p>
+          <label for="">30 days money back</label>
+        </div>
+      </div>
+      <div class="tab">
+        <img src="../assets/icons/headphones_32.png" id="tabimg" alt="" />
+        <div class="tab-content">
+          <p>24/7 Support</p>
+          <label for="">Friendly 24/7 Support</label>
+        </div>
+      </div>
+      <div class="tab">
+        <img src="../assets/icons/card_security_32.png" id="tabimg" alt="" />
+        <div class="tab-content">
+          <p>Secure payment</p>
+          <label for="">All cards acceted</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="cat-section">
+      <div class="sect-cat">
+        <div class="f-cat">
+          <ul>
+            <li class="active">
+              <span class="ti-sb">
+                <fa icon="shopping-basket" />
+              </span>
+              <p>Gift Basket</p>
+            </li>
+            <li>
+              <span class="ti-ham">
+                <fa icon="hamburger" />
+              </span>
+              <p>Snacks</p>
+            </li>
+            <li>
+              <span class="ti-apple">
+                <fa icon="apple-alt" />
+              </span>
+              <p>Fruits</p>
+            </li>
+            <li>
+              <span class="ti-bottle">
+                <fa icon="wine-bottle" />
+              </span>
+              <p>Drinks</p>
+            </li>
+            <li>
+              <span class="ti-cb">
+                <fa icon="concierge-bell" />
+              </span>
+              <p>Food</p>
+            </li>
+          </ul>
+        </div>
+        <br/>
+        <p>view :</p>
+              <div class="main-tabs">
+                <button
+                  :class="isActive === 0 ? 'is-active' : ''"
+                  @click="isActive = 0"
+                >
+                  <span class="ti-cart"> <fa icon="shopping-cart"/></span>View
+                  cart
+                </button>
+                <button
+                  :class="isActive === 1 ? 'is-active' : ''"
+                  @click="isActive = 1"
+                >
+                  <span class="ti-filter"> <fa icon="filter"/></span>Filter list
+                </button>
+              </div>
+      </div>
+    </section>
+
+    <div class="front-main">
+      <div class="category-wrapper" id="cartwrap">
+        <ul>
+          <li class="active">
+            <img src="../assets/img/all_16.png" alt="dish" />
+            <p>All</p>
+          </li>
+          <li>
+            <img src="../assets/img/location_16.png" alt="" />
+            <p>Nearby</p>
+          </li>
+          <li>
+            <img src="../assets/img/rated_16.png" alt="" />
+            <p>Top Rated</p>
+          </li>
+          <li>
+            <img src="../assets/img/best_16.png" alt="" />
+            <p>Best Sellers</p>
+          </li>
+          <li>
+            <img src="../assets/img/new_16.png" alt="dish" />
+            <p>Newcomers</p>
+          </li>
+          <!--
                           </div>
                           <br/>
                           <br/>
@@ -53,179 +208,216 @@
                               </div>
                           </div>
                           -->
-                        </ul>
-                    </div>
+        </ul>
+      </div>
 
-                    <!--food category--> 
-                    <div class="category-wrapper" id="foodcat" >
-                        <ul>
-                            <li class="active"><img src="../assets/cat-icon/icons_package_32.png" alt="dish"><p>Gift Basket</p></li>
-                            <li><img src="../assets/cat-icon/pizza_32.png" alt=""><p>Snacks</p></li>
-                            <li><img src="../assets/cat-icon/apple_32.png" alt=""><p>Fruits</p></li>
-                            <li><img src="../assets/cat-icon/beer_bottle_32.png" alt=""><p>Drinks</p></li>
-                            <li><img src="../assets/cat-icon/food_32.png" alt="dish"><p>Food</p></li>
-                        </ul>
-                    </div>
+      <!--food category-->
+      <div class="category-wrapper" id="foodcat">
+        <ul>
+          <li class="active">
+            <img src="../assets/cat-icon/icons_package_32.png" alt="dish" />
+            <p>Gift Basket</p>
+          </li>
+          <li>
+            <img src="../assets/cat-icon/pizza_32.png" alt="" />
+            <p>Snacks</p>
+          </li>
+          <li>
+            <img src="../assets/cat-icon/apple_32.png" alt="" />
+            <p>Fruits</p>
+          </li>
+          <li>
+            <img src="../assets/cat-icon/beer_bottle_32.png" alt="" />
+            <p>Drinks</p>
+          </li>
+          <li>
+            <img src="../assets/cat-icon/food_32.png" alt="dish" />
+            <p>Food</p>
+          </li>
+        </ul>
+      </div>
 
-                    <!--main-tabs for cart and filter view in screens above 900px 
+      <!--main-tabs for cart and filter view in screens above 900px 
                     <div class="main-tabs">
                     <button :class="isActive === 0? 'is-active': ''" @click="isActive = 0">Cart</button>
                     <button :class="isActive === 1? 'is-active': ''" @click="isActive = 1">Filter</button>
         </div>
 -->
-             <div class="dividersolid"></div>      
+      <div class="dividersolid"></div>
 
-            <div class="main-grid">
+      <div class="main-grid">
+        <!-- code within this comment are media queries for smaller screens-->
 
-                <!-- code within this comment are media queries for smaller screens-->
+        <!--View all menu in the nearby filer -->
+        <div class="menu-section" id="Nearby">
+          <div class="cat-header">
+            <h3><img src="../assets/img/location_16.png" alt="" />Nearby</h3>
+            <a href="#" id="viewall"
+              >view all <img src="@/assets/icons/forward_16.png" alt="forward"
+            /></a>
+          </div>
+          <div class="menu-flex">
+            <div
+              class="menu-card"
+              :style="`background-image: url(${item.image})`"
+              v-for="(item, index) in item"
+              :key="index"
+            >
+              <div>
+                <span class="bg-main-gradient item-price">
+                  <span>&#8358;</span> {{ item.price }}
+                </span>
+              </div>
+              <div>
+                <span class="item-name">{{ item.name }}</span>
+              </div>
+              <div class="love-item">
+                <fa icon="heart" />
+              </div>
 
-              <!--View all menu in the nearby filer --> 
-              <div class="menu-section" id="Nearby">
-                  <div class="cat-header">
-                      <h3><img src="../assets/img/location_16.png" alt="">Nearby</h3>    
-                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
-                    
-                  </div>
-                    <div class="menu-flex">
-                        <div  
-                        class="menu-card" :style="`background-image: url(${item.image})`" 
-                        v-for="(item, index) in item" :key="index">
-                            <div>
-                                <span class="bg-main-gradient item-price">
-                                    <span>&#8358;</span> {{item.price}}
-                                </span>
-                            </div>
-                            <div>
-                                <span class="item-name">{{item.name}}</span>
-                            </div>
-                            <div class="love-item">
-                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
-                            </div>
-
-                            <router-link to="/item">
-                               <button @click="(selectedItem = item)" class="btn btn-main-gradient">
-                                    <span class="ti-plus"></span>
-                                add to cart 
-                               </button>
-                               </router-link> 
-                            
-                        </div>
-                    </div>    
-                             <!--<Pagination></Pagination>-->
-                </div>
-
-                <div class="dividersolid"></div>
-
-                <!-- about section starts  -->
-                <section></section>
-                <!-- about section ends -->
-                
-                <!--View all menu in the top rated filter--> 
-              <div class="menu-section" id="Toprated">
-                        
-                    <div class="cat-header">
-                      <h3><img src="../assets/img/rated_16.png" alt="">Top Rated</h3>   
-                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
-                    
-                  </div>
-                    <div class="menu-flex">
-                        <div  
-                        class="menu-card" 
-                        :style="`background-image: url(${item.image})`" 
-                        v-for="(item, index) in item" :key="index">
-                            <div>
-                                <span class="bg-main-gradient item-price">
-                                    <span>&#8358;</span> {{item.price}}
-                                </span> 
-                                </div>
-                            <div>
-                                <span class="item-name"  @click="(showItemInfo = true) && (selectedItem = item)" >{{item.name}}</span>
-                            </div>
-                            <div class="love-item">
-                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
-                            </div>
-                            
-
-                            <button @click="pushtoCart(item)" class="btn btn-main-gradient">
-                            <span class="ti-plus"></span>
-                            add to cart 
-                            </button>
-                            
-                        </div>
-                    </div>    
-                             <!--<Pagination></Pagination>-->
-                </div>  
-
-                <div class="dividersolid"></div>
-
-                <!--menucard
-                <div class="menu-section">
-                    <div class="menu-grid">
-                            <Menucard :item="item"></Menucard>
-                    </div>
-                </div>
-                -->
-                <section>
-                    
-                </section>
-
-                <!--View all menu without filter--> 
-                <div class="menu-section" id="all">
-                        
-                     <div class="cat-header">
-                      <h3><img src="../assets/img/all_16.png" alt="dish">All</h3>  
-                    <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
-                    
-                  </div>
-                    <div class="menu-grid">
-                        <div  
-                        class="menu-card" 
-                        :style="`background-image: url(${item.image})`" 
-                        v-for="(item, index) in item" :key="index">
-                            <div>
-                                <span class="bg-main-gradient item-price">
-                                    <span>&#8358;</span> {{item.price}}
-                                </span>
-                                  <!--
-                                  <span class="bg-main-gradient img-1 wishlist">
-                                    
-                                    <Rating 
-                                    :star="this.star" 
-                                    :disabled="disabled" 
-                                    :maxstars="this.maxstars" 
-                                    :starsize="this.starsize" 
-                                    :hasresults="this.hasresults" 
-                                    :hasdescription="this.hasdescription" 
-                                    :ratingdescription="this.ratingdescription" />-->
-                                 <!-- <img src="../assets/img/love_a.png" alt=""></span> 
-                                </span>
-                                -->
-                            </div>
-                            <div>
-                                <span class="item-name">{{item.name}}</span>
-                            </div>
-
-                            <div class="love-item">
-                                <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
-                            </div>
-
-                            <button @click="pushtoCart(item)" class="btn btn-main-gradient">
-                            <span class="ti-plus"></span>
-                            add to cart 
-                            </button>
-                            
-                        </div>
-                    </div> 
-                    
-        <div class="cart-section">
-            <Order @show="showAddressModal = true" 
-        :cartLength="(cart.length).toLocaleString()" 
-        :cart="cart"
-        :address="address" 
-        :user="email" >
-        </Order>
+              <router-link to="/item">
+                <button
+                  @click="selectedItem = item"
+                  class="btn btn-main-gradient"
+                >
+                  <span class="ti-plus"></span>
+                  add to cart
+                </button>
+              </router-link>
+            </div>
+          </div>
+          <!--<Pagination></Pagination>-->
         </div>
-                    <!--Cart Tab
+
+        <div class="dividersolid"></div>
+
+        <!-- about section starts  -->
+        <section></section>
+        <!-- about section ends -->
+
+        <!--View all menu in the top rated filter-->
+        <div class="menu-section" id="Toprated">
+          <div class="cat-header">
+            <h3><img src="../assets/img/rated_16.png" alt="" />Top Rated</h3>
+            <a href="#" id="viewall"
+              >view all <img src="@/assets/icons/forward_16.png" alt="forward"
+            /></a>
+          </div>
+          <div class="menu-flex">
+            <div
+              class="menu-card"
+              :style="`background-image: url(${item.image})`"
+              v-for="(item, index) in item"
+              :key="index"
+            >
+              <div>
+                <span class="bg-main-gradient item-price">
+                  <span>&#8358;</span> {{ item.price }}
+                </span>
+              </div>
+              <div>
+                <span
+                  class="item-name"
+                  @click="(showItemInfo = true) && (selectedItem = item)"
+                  >{{ item.name }}</span
+                >
+              </div>
+              <div class="love-item">
+                <fa icon="heart" />
+              </div>
+
+              <button @click="pushtoCart(item)" class="btn btn-main-gradient">
+                <span class="ti-plus"></span>
+                add to cart
+              </button>
+            </div>
+          </div>
+          <!--<Pagination></Pagination>-->
+        </div>
+
+        <div class="dividersolid"></div>
+
+        <!--section-->
+        <section></section>
+
+        <!--View all menu without filter-->
+        <div class="menu-section" id="all">
+          <div class="cat-header">
+            <span
+              ><fa icon="th" />
+              <h3>Meals From all categories</h3></span
+            >
+            <span
+              ><a href="#" id="viewall">view all </a
+              ><fa icon="chevron-circle-right"
+            /></span>
+          </div>
+          <div class="menu-grid">
+            <div
+              class="menu-card"
+              :style="`background-image: url(${item.image})`"
+              v-for="(item, index) in item"
+              :key="index"
+            >
+              <div>
+                <span class="bg-main-gradient item-price">
+                  <span>&#8358;</span> {{ item.price }}
+                </span>
+              </div>
+              <div>
+                <span class="item-name">{{ item.name }}</span>
+              </div>
+              <div class="rating">
+                <span class="rate"><fa icon="star"/></span>
+                <span class="rate"><fa icon="star"/></span>
+                <span class="rate"><fa icon="star"/></span>
+                <span class="rate"><fa icon="star"/></span>
+                <span class="rate"><fa icon="star"/></span>
+              </div>
+              <!--
+              <div>
+                <Rating
+                  :star="this.star"
+                  :disabled="disabled"
+                  :maxstars="this.maxstars"
+                  :starsize="this.starsize"
+                  :hasresults="this.hasresults"
+                  :hasdescription="this.hasdescription"
+                  :ratingdescription="this.ratingdescription"
+                />
+              </div>
+              -->
+
+              <div class="love-item">
+                <fa icon="heart" />
+              </div>
+
+              <button @click="pushtoCart(item)" class="btn btn-main-gradient">
+                <span class="ti-plus"><fa icon="cart-plus"/></span>
+                add to cart
+              </button>
+            </div>
+          </div>
+
+          <div class="side-tab">
+            <component
+              :is="compsArr[isActive]"
+              :cart="cart"
+              :user="email"
+              :address="address"
+            ></component>
+          </div>
+
+          <!--
+          <Order
+            @show="showAddressModal = true"
+            :cartLength="cart.length.toLocaleString()"
+            :cart="cart"
+            :address="address"
+            :user="email"
+          >
+          </Order>
+          Cart Tab
         <div class="cart-section">
             <Order @show="showAddressModal = true" 
         :cartLength="(cart.length).toLocaleString()" 
@@ -254,43 +446,9 @@
                 </ul>
             </template>
         </Modal>
-        -->        
-<Pagination></Pagination>
-                </div>
-
-    <section class="about" id="about">
-    <h1 class="heading"> why choose us? </h1>
-
-    <div class="row">
-
-        <div class="image">
-            <img src="@/assets/newimg/dish-2.png" alt="">
+        -->
+          <Pagination></Pagination>
         </div>
-
-        <div class="content">
-            <p>Foodie brings the best food, menu's and categories from the best and location strategic restaurants to you.</p>
-           <!--
-            <div class="icons-container">
-                <div class="icons">
-                    <i class="fas fa-shipping-fast"></i>
-                    <span>free delivery</span>
-                </div>
-                <div class="icons">
-                    <i class="fas fa-dollar-sign"></i>
-                    <span>easy payments</span>
-                </div>
-                <div class="icons">
-                    <i class="fas fa-headset"></i>
-                    <span>24/7 service</span>
-                </div>
-            </div>
-            -->
-            <a href="#" class="btn btn-main-gradient">learn more</a>
-        </div>
-
-    </div>
-
-    </section>
         <!--
         <Modal v-if="showAddressModal" @close="showAddressModal = false">
             <template v-slot:header>
@@ -304,191 +462,278 @@
                 </div>
             </template>
         </Modal>
-        --> 
+        -->
 
         <!--
         <div class="cart-section">
         <component :is="compsArr[isActive]" :cart="cart" :user="user" :address="address"></component>
         </div>
         -->
-     </div>
+      </div>
     </div>
-     <Footermain id="extupFooter"></Footermain>
-    </div>
+    <section class="restaurants-list" >
+       <div class="cat-header">
+            <span
+              ><fa icon="th" />
+              <h3>Top Restaurants</h3></span
+            >
+            <span
+              ><a href="#" id="viewall">view all </a
+              ><fa icon="chevron-circle-right"
+            /></span>
+          </div>
+        <div class="cat-body">
+          <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+      <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+      <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+       <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+      <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+      <div class="res-cont">
+        <div class="sflex" >
+          <div class="img-1">
+          <img src="../assets/restaurant/dominos.png" id="res-logo" alt="">
+        </div>
+         <div class="res-info">
+           <h4>Restautant name</h4>
+           <p><span class="ti-loc"><fa icon="map-marker-alt"/></span>location</p>
+         </div>
+        </div>
+        <div class="cat-three">
+          <p>Meals</p>
+          <p>Meals</p>
+          <p>Meals</p>
+        </div>
+          <div class="timedistance">
+            <span><fa icon="truck"/> <p>Free Delivery</p></span>
+            <span><fa icon="clock"/> <p>20-30min</p></span>
+          </div>
+          <div class="sflex">
+            <span class="ti-star"><fa icon="star"/></span><small id="score">4.5</small> <small>(30+)</small> <button class="btn btn-main-gradient">Visit</button>
+          </div>
+      </div>
+        </div>
+    </section>
+
+    <section class="restaurants-section">
+       <div class="res-header">
+        <span><fa icon="utensils"/></span>
+        <h3>Top Restaurants</h3>
+       </div>
+          <div class="rest-container">
+            <img src="@/assets/restaurant/dominos.png" alt="#one">
+            <img src="@/assets/restaurant/kfc.png" alt="#two">
+            <img src="@/assets/restaurant/starbucks.png" alt="#three">
+          </div>
+        </section>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
-import Nav from '../components/Nav.vue'
-import Modal from '../components/Modal.vue'
-import SideNav from '../components/SideNav.vue'
-import Order from '../components/Order.vue'
-import BottomNav from '../components/Bottom_Navbar.vue'
-import Menucard from '../components/MenuCard.vue'
-import Slider from '../components/Slider.vue'
-import Footer from '../components/Footer.vue'
-import Footermain from '../components/Footer_main.vue'
-import Searchbar from '../components/Searchbar.vue'
-import Pagination from '../components/Pagination.vue'
-import FilterTab from '../components/FIlterTab.vue'
-import image1 from '@/assets/newimg/jollofrice.jpg'
-import image2 from '@/assets/newimg/friedrice.jpg'
-import image3 from '@/assets/newimg/food1.jpg'
-import image4 from '@/assets/newimg/food2.jpg'
-import image5 from '@/assets/newimg/food3.jpg'
-import image6 from '@/assets/newimg/burger.jpg'
-import image7 from '@/assets/newimg/amala_ewedu.jpg'
-import image8 from '@/assets/newimg/dish1.jpg'
-import image9 from '@/assets/newimg/dish2.jpg'
-import CartTab from '../components/CartTab.vue'
-import Item from '../components/Item.vue'
+import Nav from "../components/Nav.vue";
+import Modal from "../components/Modal.vue";
+import SideNav from "../components/SideNav.vue";
+import Order from "../components/Order.vue";
+import BottomNav from "../components/Bottom_Navbar.vue";
+import Menucard from "../components/MenuCard.vue";
+import Slider from "../components/Slider.vue";
+import Footer from "../components/Footer.vue";
+import Footermain from "../components/Footer_main.vue";
+import Searchbar from "../components/Searchbar.vue";
+import Pagination from "../components/Pagination.vue";
+import FilterTab from "../components/FIlterTab.vue";
+import CartTab from "../components/CartTab.vue";
+import Item from "../components/Item.vue";
+import ripple from "../components/ripple.vue";
+import items from "../components/js/items.js";
+import cart from "../components/js/cart.js";
+import btnRipple from "../components/js/ripple.js";
+import Rating from "../components/Rating.vue";
+import { useToast } from "vue-toastification";
+import Button from "../components/Button.vue"
+import Navbar from "../components/Navbar.vue"
 
-export default {  
-  name: 'Home',
-  components:{
-      Nav, 
-      Modal,
-      SideNav,
-      BottomNav,
-      Slider,
-      Footer,
-      Pagination,
-      Searchbar,
-      FilterTab,
-      CartTab,
-      Order,
-      Menucard,
-      Footermain,
-      Item
+export default {
+  name: "Home",
+  components: {
+    Button,
+    Nav,
+    Modal,
+    SideNav,
+    BottomNav,
+    Slider,
+    Footer,
+    Pagination,
+    Searchbar,
+    FilterTab,
+    CartTab,
+    Order,
+    Menucard,
+    Footermain,
+    Item,
+    ripple,
+    Navbar,
+  },
+  setup() {
+    const toast = useToast();
+    return {
+      toast,
+    };
   },
   data() {
     return {
-        email: "",
-        password: "",
-        address: "",
-        user: "",
-        showAddressModal: false,
-        showItemInfo: false,
-        total:'',
-        Dfee: '',
-        show: false,
-        compsArr: [
-                CartTab,
-                FilterTab,
-            ],
-        isActive: 0,
-        selectedItem: [],
-        item:[
-            {
-          name: 'Fried rice and chicken',
-          price: '1200.00',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: image1,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000.00',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image:image2,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Amala and ewedu',
-          price: '1500.00',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image:image3,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Fried rice and chicken',
-          price: '1200.00',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: image4,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000.00',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image : image5,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Amala and ewedu',
-          price: '1500.00',
-          restaurant: 'Onehouse Restaurant',
-          menu: 'green menu',
-          image: image6,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Amala and ewedu',
-          price: '2500.00',
-          restaurant: 'Emeka Restaurant',
-          menu: 'green menu',
-          image: image7,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000.00',
-          restaurant: 'D Restaurant',
-          menu: 'green menu',
-          image: image8,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Rice crispies',
-          price: '2000.00',
-          restaurant: 'D Restaurant',
-          menu: 'green menu',
-          image: image9,
-          status: 'Available till 6pm today'
-        },
-        
-        ],
-        cart: [
-            {
-          name: 'Fried rice and chicken',
-          price: '1200.00',
-          restaurant: 'KFC Restaurant',
-          menu: 'Sunday Specials',
-          image: image1,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Beans and wheat',
-          price: '1000.00',
-          restaurant: 'D Restaurant',
-          menu: 'green menu',
-          image: image8,
-          status: 'Available till 6pm today'
-        },
-        {
-          name: 'Rice crispies',
-          price: '2000.00',
-          restaurant: 'D Restaurant',
-          menu: 'green menu',
-          image: image9,
-          status: 'Available till 6pm today'
-        },
-        ],
-    }
+      email: "",
+      password: "",
+      address: "",
+      user: "",
+      showAddressModal: false,
+      showItemInfo: false,
+      total: "",
+      Dfee: "",
+      show: false,
+      compsArr: [Order, FilterTab],
+      isActive: 0,
+      selectedItem: [],
+      item: items,
+      cart: cart,
+    };
   },
   methods: {
-      pushtoCart(itemm){
-            this.cart = [itemm]
-      },
+    pushtoCart(itemm) {
+      if (this.cart.push(itemm)) {
+        this.toast.success("Item successfully added to cart");
+      } else {
+        this.toast.error("failed to add item to cart");
+      }
+      /*
+      this.$toasted.show("Added to cart !!", { 
+        theme: "toasted-primary",
+        position: "top-right",
+        duration: 2000
+      });
+      */
+    },
+    funct(btn){
+      if(btn === "checkout"){
+        alert('This is a checkout button')
+      }else {
+        if(btn === "save"){
+          alert('This is a save button')
+        }
+      }
+    }
   },
-}
+};
 </script>
 
-<style lang="scss">
-</style>
-
-
+<style lang="scss"></style>

@@ -56,6 +56,36 @@
         color: white;
     } 
 
+    .sub{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        width: 50%;
+        line-height: 1.9rem;
+        margin-left: auto;
+
+        .form{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            input{
+                margin-right: .7rem;
+            }
+        }
+    }
+
+    span.cpage-cart {
+    font-size: 6rem;
+    color: var(--main-color);
+    }
+
+    div#cpage-body {
+    height: 60vh !important;
+    }
+    
+
+
 
     @media only screen and (min-width: 860px){
 
@@ -65,13 +95,13 @@
         }
 
         div#empty {
-            display: block;
-            padding: 10px;
-            margin-bottom: 50%;
-            margin-top: 80px;
+            display: flex;
             padding: 100px;
             text-align: center;
-    
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
             img{
                 visibility: hidden;
             }
@@ -111,8 +141,12 @@
     }
 
     div#empty {
-        padding: 100px;
-        text-align: center;
+        display: block;
+            padding: 10px;
+            margin-bottom: 50%;
+            margin-top: 80px;
+            padding: 100px;
+            text-align: center;
 
         img{
             width: 50%;

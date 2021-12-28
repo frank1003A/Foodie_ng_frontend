@@ -69,9 +69,8 @@
         <button class="btn btn-block btn-big btn-main-gradient " >Add to Cart</button>
     </div>
     <section>
-        <div class="main-grid">
         <!--View all menu in the nearby filer --> 
-              <div class="menu-section" id="Nearby">
+              <div class="menu-section" id="similar">
                   <div class="cat-header">
                       <h3><img src="../assets/img/location_16.png" alt="">Similar Food Items</h3>    
                     <a href="#" id="viewall">view all <img src="@/assets/icons/forward_16.png" alt="forward"></a>
@@ -87,7 +86,7 @@
                                 </span>
                             </div>
                             <div>
-                                <span class="item-name"  @click="(selectedItem = item)" >{{item.name}}</span>
+                                <span class="item-name" >{{item.name}}</span>
                             </div>
                             <div class="love-item">
                                 <span class="cravelist"><img src="@/assets/img/love_a.png" alt="love"></span>
@@ -101,7 +100,6 @@
                         </div>
                     </div>    
                              <!--<Pagination></Pagination>-->
-                </div>
                 </div>
     </section>
  <Footermain></Footermain>
@@ -122,8 +120,6 @@ import image9 from '@/assets/newimg/dish2.jpg'
 export default {
     name: 'Item',
     props:{
-        item: Array,
-        selectedItem: Object
     },
     components:{
         Nav,
@@ -131,16 +127,14 @@ export default {
     },
     data() {
         return {
-            selectedItem: [
-                {
-          name: 'Amala and ewedu',
-          price: '1500.00',
-          restaurant: 'Onehouse Restaurant',
+            selectedItem: {
+         name: 'Egusi Soup and amala',
+          price: '2500.00',
+          restaurant: 'Drogba Restaurant',
           menu: 'green menu',
-          image:image3,
+          image:image9,
           status: 'Available till 6pm today'
-        },
-            ],
+             },
             item:[
             {
           name: 'Fried rice and chicken',

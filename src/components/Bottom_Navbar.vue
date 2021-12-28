@@ -6,8 +6,7 @@
                     <li>
                         <div>
                             <router-link to="/">
-                            <button id="homebtn" :class="$route.name === 'Home' ? 'active' : 'btn-nav'">
-                                <!--<span class="ti-shopping-cart"></span>-->
+                            <button id="homebtn" class="btn-nav">
                                 <img src="../assets/icons/home_32.png"  alt="">
                             </button>
                             </router-link>
@@ -16,7 +15,7 @@
                     <li>
                         <div>
                             <router-link to="/wallet" >
-                            <button id="walletbtn"  :class="$route.name ==='Wallet' ? 'active': 'btn-nav' ">
+                            <button id="walletbtn"  class="btn-nav">
                                 <img src="../assets/icons/wallet_32.png" alt="">
                             </button>
                             </router-link>
@@ -25,7 +24,7 @@
                     <li>
                         <div>
                             <router-link to="/cart" >
-                            <button id="cartbtn"  :class="$route.name='Cart'  ? 'active': 'btn-nav' ">
+                            <button id="cartbtn"  class="btn-nav">
                                 <img src="../assets/icons/cartt_16.png" alt="">
                                 <span class="shop-badge">{{cart.length}}</span>
                             </button>
@@ -35,7 +34,7 @@
                     <li>
                         <div>
                             <router-link to="/profile" >
-                            <button id="profbtn"  :class="$route.name  ===  'Profile' ? 'active': 'btn-nav' ">
+                            <button id="profbtn"  class="btn-nav">
                                 <img src="../assets/icons/notification_32.png" alt="">
                                 <span class="shop-badge">2</span>
                             </button>
@@ -45,7 +44,7 @@
                     <li>
                          <div>
                             <router-link to="/cravelist" >
-                            <button id="cravebtn" :class="$route.name='Cravelist' ? 'active': 'btn-nav'">
+                            <button id="cravebtn" class="btn-nav">
                                 <img src="../assets/icons/love_32.png" alt="">
                             </button>
                             </router-link>
@@ -63,22 +62,15 @@ export default {
     props:{
         categories: Array,
         user: String, 
-        cart: Array
+        cart: Array,
+        active: String,
     },
     data() {
         return {
-            active: false,
+            isActive: false,
         }
     },
-    methods: {
-        activeFunct(){
-            if ($router.name){
-                this.active = true
-            } 
-            else {
-                this.active = false
-            }
-        }    
+    methods: {   
     },
 
 }
@@ -148,6 +140,7 @@ export default {
         border-radius: 8px;
         width: 50px;
         height: 40px;
+        box-shadow: none;
 }
 
 @media only screen and (min-width: 900px){

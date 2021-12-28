@@ -85,9 +85,8 @@ import BottomNav from '../components/Bottom_Navbar.vue'
 import Modal from '../components/Modal.vue'
 import Footer from '../components/Footer.vue'
 import Footermain from '../components/Footer_main.vue'
-import image1 from '@/assets/newimg/jollofrice.jpg'
-import image2 from '@/assets/newimg/friedrice.jpg'
-import image3 from '@/assets/newimg/food1.jpg'
+import cravelist from '../components/js/cravelist.js'
+
 
 export default {
     name: 'Cravelist',
@@ -104,8 +103,7 @@ export default {
     },
     data(){
         return{
-            cravelist: [
-            ]
+            cravelists: cravelist
         }
     }
 

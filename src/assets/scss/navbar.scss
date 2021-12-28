@@ -1,0 +1,207 @@
+
+:root{
+    /*--green:#27ae60;*/
+    --green:linear-gradient(to right, red, #faae0a);
+    --header: red;
+    --white: white;
+    /*--black:#192a56;*/
+    --black:orange;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+header{
+    position: relative;
+    top:0; left: 0; right:0;
+    background: #fff;
+    padding:1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+
+    .logo{
+        color:var(--black);
+        font-size: 2.5rem;
+        font-weight: bolder;
+    }
+}
+
+.header{
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.header .logo i{
+    color:var(--green);
+}
+
+.header .logo img#logoimg {
+    height: 35px;
+    display: flex;
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem;
+    color:var(--light-color);
+}
+
+.header .navbar a.active,
+.header .navbar a:hover{
+    color:#fff;
+    background: var(--green);
+}
+
+.header .icons i,
+.header .icons a{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    display: flex;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .icons i:hover,
+.header .icons a:hover{
+    color:#fff;
+    background: var(--green);
+    transform: rotate(360deg);
+}
+
+.header .icons #menu-bars{
+    display: none;
+}
+
+/*added by frank ezene*/
+.header .icons{
+    display: flex; 
+}
+
+.header .user-section .user .icons .user-a:hover{
+    color:#fff;
+    background: #eee;
+    transform: rotate(360deg);
+}
+
+a.user-a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .user-section .user {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header .user-section .user .user-info{
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
+    margin-left: 10px;
+}
+
+.header .user-section .user .user-info p{
+    font-size: 1.3rem;
+    margin: 4px;
+}
+
+.header .user-section .user .user-info select#user-select {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+
+.top-container{
+    position: relative;
+    top:0; left: 0; right:0;
+    background: #fff;
+    padding:1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.top-container .logo{
+        color:var(--black);
+        font-size: 2.5rem;
+        font-weight: bolder;
+}
+
+.top-container .navbar{
+    display: flex;
+}
+
+.top-container .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem;
+    color:var(--light-color);
+}
+
+.top-container .navbar a.active,
+.top-container .navbar a:hover{
+    color:#fff;
+    background: var(--green);
+}
+
+.top-container .company-socials span,
+.top-container .icons a{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    line-height: 4.5rem;
+    display: flex;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-container .company-socials span img:hover,
+.top-container .icons a:hover{
+    color:#fff;
+    transform: rotate(360deg);
+}
+
+.top-container .icons #menu-bars{
+    display: none;
+}
+
+.company-socials{
+    display: flex;
+}
+
+.extra{
+    display: flex;
+}
+
+.extra a {
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    color: var(--light-color);
+    align-items: center;
+}
+
+.extra a:hover{
+    color:#fff;
+    background: var(--green);
+}

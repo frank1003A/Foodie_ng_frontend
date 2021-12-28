@@ -2,7 +2,7 @@
     <transition name="modal">
         <div class="modal-mask">
             <div class="modal-wrapper">
-                <div class="modal-container" :style="`width: ${size}`">
+                <div class="modal-container">
 
                     <div class="modal-header">
                         <slot name="header"></slot>
@@ -13,11 +13,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <slot name="footer">
-                            <button class="btn btn-main-gradient" @click="$emit('close')">
-                                Confirm
-                            </button>
-                        </slot>
+                        <slot name="footer"></slot>
                 </div>
             </div>
         </div>
@@ -27,6 +23,9 @@
 
 <script>
 export default {
-    name: 'Modal'
+    name: 'Modal',
+    props:{
+        size: Number
+    },
 }
 </script>
